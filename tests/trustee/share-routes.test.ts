@@ -148,9 +148,19 @@ describe("POST /api/shares/invite/[token]/accept", () => {
     expect(repo.acceptInvite).toHaveBeenCalledWith({
       token: "TOK",
       trusteeUserId: "owner1",
+      trusteeEmail: "owner@e.test",
       trusteePublicKey: pub,
       trusteeFingerprint: expectedFp,
     });
+  });
+
+  it("returns 403 when the caller's email does not match the invited email", async () => {
+    const pub = publicKeyToBase64((await generateTrusteeKeypair()).publicKey);
+    repo.getUserPublicKey.mockResolvedValue(pub);
+    repo.acceptInvite.mockResolvedValue({ error: "email_mismatch" });
+    const res = await acceptPost(acceptReq(), { params: Promise.resolve({ token: "TOK" }) });
+    expect(res.status).toBe(403);
+    expect((await res.json()).error).toBe("email_mismatch");
   });
 
   it("returns 404 when the invite token is unknown", async () => {

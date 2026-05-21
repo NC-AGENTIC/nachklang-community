@@ -13,8 +13,9 @@ email/username you used, and a hint about *where* the real password is kept — 
 external passwords themselves**, not even encrypted.
 
 > [!NOTE]
-> You can fully checkout all features on my community website here: 
-> [https://nachklang.agentigo.de](https://nachklang.agentigo.de/)
+> You can fully checkout all features on my community website here:
+> [https://nachklang.agentigo.de](https://nachklang.agentigo.de/) <br />
+> Also HowTo of all functions: [http://nachklang.agentigo.de/en/howto](http://nachklang.agentigo.de/en/howto)
 
 ## Key features
 

@@ -12,6 +12,10 @@ handing over your passwords. It stores only encrypted management data: the login
 email/username you used, and a hint about *where* the real password is kept — **never the
 external passwords themselves**, not even encrypted.
 
+> [!NOTE]
+> You can fully checkout all features of my community website here: 
+> [https://nachklang.agentigo.de](https://nachklang.agentigo.de/)
+
 ## Key features
 
 - **Zero-knowledge by design.** All vault data is encrypted and decrypted in your browser. The

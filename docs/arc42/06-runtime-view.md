@@ -24,7 +24,7 @@
 
 ## Granting Trustee Access
 
-1. The owner invites a trustee by email; the invitee accepts the link and provisions a passkey + X25519 sharing keypair.
+1. The owner invites a trustee by email; the invitee accepts the link and provisions a passkey + X25519 sharing keypair. Acceptance is bound to the invited mailbox — the server rejects (403) unless the signed-in account's OTP-verified email matches the invited address, so a leaked or forwarded link cannot be claimed by another account.
 2. Both parties compare a short out-of-band fingerprint (`SHA-256(publicKey)`) recomputed client-side.
 3. After the owner confirms the match, the browser derives a transient extractable Root Key copy, `crypto_box_seal`s it to the trustee's public key, and uploads only the sealed blob.
 

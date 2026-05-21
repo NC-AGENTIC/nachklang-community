@@ -182,6 +182,11 @@ their vault metadata. The server stores only sealed material and can never open 
 - **Per-user X25519 keypair.** Every user has a `crypto_box` keypair. The private key (32 bytes) is
   wrapped exactly like the Root Key — per passkey via the PRF-derived KEK and once via the
   recovery-code KEK (AAD binds `type/keypairId/credentialID/version`). The public key is plaintext.
+- **Invite acceptance is mailbox-bound.** An invite link carries a 256-bit bearer token, but the
+  token alone is not sufficient to claim the grant: acceptance is rejected (403) unless the
+  signed-in account's **OTP-verified** email matches the invited address. A leaked or forwarded
+  link therefore cannot be redeemed by an arbitrary account, and the legitimate invitee cannot be
+  displaced by a token holder.
 - **Out-of-band fingerprint (SAS).** Before granting, both parties compare a short code
   (`SHA-256(publicKey)` → three 4-digit groups) that each side recomputes **client-side** from the
   trustee's public key. A server that swaps the key produces a mismatching code, which the humans

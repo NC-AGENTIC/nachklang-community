@@ -33,12 +33,14 @@ export async function POST(
   const result = await acceptInvite({
     token,
     trusteeUserId: session.user.id,
+    trusteeEmail: session.user.email,
     trusteePublicKey: publicKey,
     trusteeFingerprint: fingerprint,
   });
 
   if ("error" in result) {
-    const status = result.error === "not_found" ? 404 : 409;
+    const status =
+      result.error === "not_found" ? 404 : result.error === "email_mismatch" ? 403 : 409;
     return NextResponse.json({ error: result.error }, { status });
   }
 

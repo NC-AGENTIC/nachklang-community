@@ -56,6 +56,7 @@ describe("acceptInvite", () => {
   const base = {
     token: "tok",
     trusteeUserId: "trustee1",
+    trusteeEmail: "trustee@e.test",
     trusteePublicKey: "pubkey-b64",
     trusteeFingerprint: "0421-9837-1056",
   };
@@ -78,11 +79,44 @@ describe("acceptInvite", () => {
     expect(m.shareUpsert).not.toHaveBeenCalled();
   });
 
+  it("rejects acceptance when the caller's email does not match the invited email", async () => {
+    m.inviteFindUnique.mockResolvedValue({
+      id: "inv1",
+      vaultId: "v1",
+      label: "Sis",
+      inviteeEmail: "trustee@e.test",
+      status: "invited",
+      expiresAt: new Date(Date.now() + 100000),
+    });
+    m.shareFindUnique.mockResolvedValue(null);
+    m.shareUpsert.mockResolvedValue({ id: "share1", status: "pending_verify" });
+    const res = await acceptInvite({ ...base, trusteeEmail: "attacker@e.test" });
+    expect(res).toEqual({ error: "email_mismatch" });
+    expect(m.shareUpsert).not.toHaveBeenCalled();
+    expect(m.inviteUpdate).not.toHaveBeenCalled();
+  });
+
+  it("matches the invited email case-insensitively", async () => {
+    m.inviteFindUnique.mockResolvedValue({
+      id: "inv1",
+      vaultId: "v1",
+      label: "Sis",
+      inviteeEmail: "trustee@e.test",
+      status: "invited",
+      expiresAt: new Date(Date.now() + 100000),
+    });
+    m.shareFindUnique.mockResolvedValue(null);
+    m.shareUpsert.mockResolvedValue({ id: "share1", status: "pending_verify" });
+    const res = await acceptInvite({ ...base, trusteeEmail: "Trustee@E.TEST" });
+    expect(res).toEqual({ shareId: "share1", status: "pending_verify" });
+  });
+
   it("creates a pending_verify share binding the trustee key + fingerprint and marks the invite accepted", async () => {
     m.inviteFindUnique.mockResolvedValue({
       id: "inv1",
       vaultId: "v1",
       label: "Sis",
+      inviteeEmail: "trustee@e.test",
       status: "invited",
       expiresAt: new Date(Date.now() + 100000),
     });
@@ -113,6 +147,7 @@ describe("acceptInvite", () => {
       id: "inv1",
       vaultId: "v1",
       label: "Sis",
+      inviteeEmail: "trustee@e.test",
       status: "accepted",
       expiresAt: new Date(Date.now() + 100000),
     });
@@ -132,6 +167,7 @@ describe("acceptInvite", () => {
       id: "inv1",
       vaultId: "v1",
       label: "Sis",
+      inviteeEmail: "trustee@e.test",
       status: "accepted",
       expiresAt: new Date(Date.now() + 100000),
     });

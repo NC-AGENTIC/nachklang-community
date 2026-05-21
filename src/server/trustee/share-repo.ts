@@ -30,17 +30,25 @@ export async function getInviteByToken(token: string) {
 
 export type AcceptInviteResult =
   | { shareId: string; status: string }
-  | { error: "not_found" | "not_acceptable" };
+  | { error: "not_found" | "not_acceptable" | "email_mismatch" };
 
 export async function acceptInvite(args: {
   token: string;
   trusteeUserId: string;
+  trusteeEmail: string;
   trusteePublicKey: string;
   trusteeFingerprint: string;
 }): Promise<AcceptInviteResult> {
   const invite = await prisma.shareInvite.findUnique({ where: { token: args.token } });
   if (!invite) return { error: "not_found" };
   if (!isInviteAcceptable(invite, new Date())) return { error: "not_acceptable" };
+
+  // Bind acceptance to the invited mailbox: the token is a bearer secret, so a leaked/forwarded
+  // link must not let an arbitrary signed-in account claim the grant. The session email is
+  // OTP-verified (requireFullyAuthenticated) and inviteeEmail is stored lowercased.
+  if (invite.inviteeEmail.toLowerCase() !== args.trusteeEmail.toLowerCase()) {
+    return { error: "email_mismatch" };
+  }
 
   const existing = await prisma.vaultShare.findUnique({
     where: { vaultId_trusteeUserId: { vaultId: invite.vaultId, trusteeUserId: args.trusteeUserId } },

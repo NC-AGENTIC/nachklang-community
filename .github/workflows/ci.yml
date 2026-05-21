@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Least-privilege default token.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: nachklang
+          POSTGRES_PASSWORD: nachklang-ci-password
+          POSTGRES_DB: nachklang
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U nachklang"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://nachklang:nachklang-ci-password@localhost:5432/nachklang?schema=public
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      # Frozen lockfile: fail if package-lock.json is out of sync (supply-chain).
+      - run: npm ci
+
+      - run: npx prisma generate
+
+      - run: npx prisma migrate deploy
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Unit & component tests
+        run: npx vitest run
+
+      # Supply-chain gate: fail the build on known high/critical advisories.
+      - name: Dependency audit
+        run: npm audit --audit-level=high

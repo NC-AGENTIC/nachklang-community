@@ -1,0 +1,16 @@
+[Unit]
+Description=NachKlang encrypted database backup (pg_dump -> age)
+After=docker.service
+Requires=docker.service
+OnFailure=nachklang-backup-failure.service
+
+[Service]
+Type=oneshot
+# Adjust WorkingDirectory / EnvironmentFile to your deployment's compose project path.
+WorkingDirectory=/opt/nachklang
+# EnvironmentFile is optional (leading "-"): docker compose reads .env from WorkingDirectory
+# itself, so a parse quirk here must not block the backup. Provides NACHKLANG_BACKUP_AGE_RECIPIENT,
+# NACHKLANG_BACKUP_DIR, POSTGRES_* to the unit environment when parseable.
+EnvironmentFile=-/opt/nachklang/.env
+ExecStart=/usr/bin/docker compose --profile backup run --rm backup
+TimeoutStartSec=1800

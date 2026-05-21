@@ -1,0 +1,29 @@
+NachKlang — NOTICE
+==================
+
+Copyright (c) 2026 NC AGENTIC GmbH. All rights reserved.
+
+LICENSE
+-------
+The source code in this repository is licensed under the PolyForm
+Noncommercial License 1.0.0 (see LICENSE). Any noncommercial use is free.
+ANY commercial use — including use of any part of the code, or the
+NachKlang name, logos, or brand assets — requires explicit prior written
+approval from NC AGENTIC GmbH.
+
+Commercial licensing inquiries:  info@nc-agentic.de
+
+TRADEMARKS & BRAND ASSETS
+-------------------------
+"NachKlang" and the NachKlang logos and brand assets — including all files
+under `logos/`, `public/brand/`, and `public/logos/` — are trademarks and
+proprietary brand assets of NC AGENTIC GmbH. The PolyForm Noncommercial
+License does NOT grant any trademark rights. You may not use the NachKlang
+name, logos, or brand assets without prior written permission, except for
+nominative reference (e.g. truthfully describing this project).
+
+THIRD-PARTY ASSETS
+------------------
+`logos/eu-logo.png` is the emblem of the European Union and is subject to
+the European Union's own usage rules, not this repository's license. See:
+https://commission.europa.eu/about/visual-identity/use-eu-emblem_en

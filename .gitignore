@@ -1,0 +1,25 @@
+.DS_Store
+node_modules/
+.next/
+out/
+coverage/
+test-results/
+playwright-report/
+.env
+.env*.local
+.worktrees/
+worktrees/
+.superpowers/
+src/generated/
+*.tsbuildinfo
+
+# Claude Code: track memory, agents, commands, and shared settings;
+# ignore local-only session/cache/settings overrides.
+#.claude/settings.local.json
+#.claude/*.local.json
+#.claude/cache/
+#.claude/sessions/
+#.claude/logs/
+.claude/
+docs/00_prepare-public-repo.md
+docs/superpowers/

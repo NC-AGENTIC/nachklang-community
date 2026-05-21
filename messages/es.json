@@ -1,0 +1,591 @@
+{
+  "meta": {
+    "revision": "2026.1-f2281447"
+  },
+  "common": {
+    "languageSwitcherAria": "Elegir idioma"
+  },
+  "vault": {
+    "workspace": {
+      "eyebrow": "Bóveda de conocimiento cero",
+      "heading": "Mi bóveda",
+      "settingsButton": "Ajustes",
+      "addEntryButton": "Añadir nuevo acceso",
+      "locked": "Bóveda bloqueada. Redirigiendo…",
+      "loading": "Cargando entradas de la bóveda…",
+      "empty": "Sin entradas. Añada su primer acceso.",
+      "staleNotice": "Otro navegador ha actualizado la bóveda. Se ha cargado la versión más reciente. Por favor, guarde de nuevo.",
+      "staleReload": "Recargar",
+      "editModeNotice": "Modo edición activo. No introduzca contraseñas.",
+      "cancelNotice": "Edición cancelada.",
+      "toastUpdated": "Entrada «{name}» actualizada.",
+      "toastAdded": "Entrada «{name}» añadida.",
+      "toastSaveFailed": "No se pudo guardar la entrada.",
+      "toastDeleted": "Entrada «{name}» eliminada.",
+      "toastDeleteFailed": "No se pudo eliminar la entrada.",
+      "toastUndo": "Deshacer",
+      "toastStatusChanged": "«{name}»: estado establecido en «{status}».",
+      "toastStatusFailed": "No se pudo cambiar el estado.",
+      "errorEntryRemoved": "La entrada ya ha sido eliminada."
+    },
+    "entryForm": {
+      "eyebrowCreate": "Creación",
+      "eyebrowEdit": "Edición",
+      "titleCreate": "Añadir acceso",
+      "titleEdit": "Editar acceso",
+      "badge": "Sin campo de contraseña",
+      "labelDisplayName": "Nombre del proveedor",
+      "labelLoginUrl": "URL de inicio de sesión",
+      "labelEmailUsed": "Correo utilizado",
+      "labelUsername": "Nombre de usuario",
+      "usernameOptional": "Opcional",
+      "labelPasswordHint": "Pista de ubicación de la contraseña",
+      "passwordHintPlaceholder": "Ejemplo: En el gestor 1Password bajo el nombre del proveedor. Desbloquear con Touch ID en el MacBook de Max.",
+      "passwordHintHelp": "Describa claramente <strong_where>dónde</strong_where> se encuentra la contraseña para que sus familiares puedan encontrarla. Mencione también los dispositivos adicionales necesarios. <strong_nopassword>Nunca introduzca la contraseña aquí.</strong_nopassword> Guarde las contraseñas exclusivamente en un gestor profesional y referencie aquí únicamente su ubicación.",
+      "labelNotes": "Notas",
+      "notesPlaceholder": "Información general, contacto, cancelación...",
+      "labelStatus": "Estado",
+      "cancelButton": "Cancelar",
+      "saveEditButton": "Guardar cambios",
+      "saveCreateButton": "Guardar entrada"
+    },
+    "entryCard": {
+      "ariaLabel": "Entrada de bóveda {name}",
+      "ariaActions": "Acciones de {name}",
+      "ariaStatusChange": "Cambiar estado de {name}",
+      "ariaEdit": "Editar {name}",
+      "ariaDelete": "Eliminar {name}",
+      "revisionLabel": "Rev. {rev}",
+      "labelLogin": "Inicio de sesión",
+      "labelIdentity": "Identidad",
+      "noEmail": "Sin correo",
+      "noUsername": "Sin nombre de usuario",
+      "labelPasswordHint": "Pista de contraseña",
+      "noPasswordHint": "Sin pista registrada",
+      "labelNotes": "Notas",
+      "noNotes": "Sin notas registradas",
+      "labelStatus": "Estado",
+      "lastChanged": "Último cambio: {date}",
+      "noteAria": "Nota para {name}: {note}"
+    },
+    "entriesList": {
+      "eyebrow": "Lista de trabajo",
+      "heading": "Entradas de la bóveda",
+      "searchAriaLabel": "Buscar entradas de la bóveda",
+      "searchPlaceholder": "Buscar",
+      "listAriaLabel": "Entradas de la bóveda"
+    },
+    "summary": {
+      "ariaLabel": "Resumen de la bóveda",
+      "labelEntries": "Entradas de la bóveda",
+      "labelDecrypted": "descifrado localmente",
+      "labelActive": "Aún activo",
+      "allActive": "Todos los accesos activos"
+    },
+    "settings": {
+      "eyebrow": "Ajustes",
+      "heading": "Ajustes de la bóveda",
+      "lead": "Exporte sus entradas como un archivo ZIP protegido con contraseña (AES-256) para una copia de seguridad segura.",
+      "locked": "Bóveda bloqueada. Redirigiendo…",
+      "noticeDefault": "Establezca una contraseña para crear el ZIP cifrado.",
+      "noticeReady": "Exportación cifrada (ZIP) descargada.",
+      "noticeBlocked": "Establezca una contraseña de al menos 8 caracteres.",
+      "backLink": "← Volver a la bóveda"
+    },
+    "deleteAccount": {
+      "eyebrow": "Zona de peligro",
+      "heading": "Eliminar la cuenta definitivamente",
+      "lead": "Esto elimina de forma permanente e irreversible tu cuenta y todos los datos asociados.",
+      "exportFirst": "Por favor, exporta tus entradas (arriba) antes de eliminar tu cuenta.",
+      "start": "Eliminar cuenta…",
+      "legal1": "Si continúas, lo siguiente se eliminará de forma permanente e irreversible:",
+      "legalVaults": "Toda tu bóveda, incluidas todas las entradas.",
+      "legalShares": "Todos los accesos compartidos: se notifica por correo a las personas de confianza invitadas.",
+      "legalNoRestore": "No hay recuperación. Nada puede recuperarse.",
+      "ackLabel": "Entiendo que esta acción es definitiva y que nada puede restaurarse.",
+      "cancel": "Cancelar",
+      "continue": "Continuar",
+      "confirmWord": "ELIMINAR",
+      "confirmLead": "Para confirmar definitivamente, escribe «{word}».",
+      "confirmInputLabel": "Escribe «{word}»",
+      "deleteFinal": "Eliminar la cuenta definitivamente",
+      "deleting": "Eliminando la cuenta…",
+      "error": "Error al eliminar. Inténtalo de nuevo."
+    },
+    "providerCombobox": {
+      "categoryCloud": "Nube",
+      "categoryCommerce": "Comercio",
+      "categoryCommunication": "Comunicación",
+      "categoryEducation": "Educación",
+      "categoryFinance": "Finanzas",
+      "categoryHealth": "Salud",
+      "categoryIdentity": "Identidad",
+      "categoryInsurance": "Seguros",
+      "categoryMedia": "Medios",
+      "categoryMobility": "Movilidad",
+      "categoryProductivity": "Productividad",
+      "categoryPublic": "Administración",
+      "categorySocial": "Social",
+      "categoryTravel": "Viajes",
+      "categoryUtilities": "Servicios básicos"
+    },
+    "unlock": {
+      "eyebrow": "Bóveda",
+      "title": "Desbloquear",
+      "subtitle": "Confirme con su clave de acceso.",
+      "passkeyBusy": "Desbloqueando…",
+      "passkeySubmit": "Desbloquear con clave de acceso",
+      "passkeyErrorGeneric": "Error al desbloquear con clave de acceso.",
+      "recoveryToggle": "¿Sin clave de acceso? Usar código de recuperación",
+      "recoveryLabel": "Código de recuperación",
+      "recoverySubmit": "Abrir bóveda con código de recuperación",
+      "recoveryErrorGeneric": "Código de recuperación inválido.",
+      "recoveryNoMaterial": "No hay material de recuperación disponible."
+    },
+    "managePasskeys": {
+      "heading": "Claves de acceso",
+      "hint": "Cada dispositivo que añada puede desbloquear su bóveda. La última clave de acceso no puede eliminarse.",
+      "unnamed": "Dispositivo sin nombre",
+      "removeButton": "Eliminar",
+      "addBusy": "Por favor, confirme…",
+      "addButton": "Añadir este dispositivo",
+      "errorGeneric": "Operación fallida.",
+      "loadError": "Material de bóveda no disponible.",
+      "deviceFallback": "Este dispositivo",
+      "renameButton": "Renombrar",
+      "renameLabel": "Nombre del dispositivo",
+      "renameSave": "Guardar",
+      "renameCancel": "Cancelar"
+    },
+    "idleLock": {
+      "ariaLabel": "Advertencia de sesión",
+      "message": "La bóveda se bloqueará en {seconds}s.",
+      "stayButton": "Permanecer conectado"
+    },
+    "errors": {
+      "prfNotSupported": "La clave de acceso no admite PRF. Por favor, usa un dispositivo compatible con PRF.",
+      "prfSigninFailed": "Error al iniciar sesión con PRF.",
+      "prfUnlockFailed": "Error al desbloquear con PRF.",
+      "prfKeyNotFound": "No se encontró ninguna clave almacenada para esta clave de acceso.",
+      "recoveryCodeInvalidChar": "Carácter no válido en el código de recuperación.",
+      "recoveryCodeLength": "El código de recuperación tiene una longitud incorrecta.",
+      "generic": "La operación ha fallado."
+    },
+    "lifecycle": {
+      "aktiv": "Activo",
+      "stillgelegt": "Desactivado",
+      "anbieter-informiert": "Proveedor informado",
+      "geloescht": "Eliminado"
+    }
+  },
+  "onboarding": {
+    "wizard": {
+      "stepLabels": [
+        "Clave de acceso",
+        "Recuperación",
+        "Confirmación"
+      ],
+      "step1Eyebrow": "PASO 1 DE 3 · CLAVE DE ACCESO",
+      "step1Title": "Configurar bóveda",
+      "step1Subtitle": "Su clave de acceso protege esta bóveda. La clave nunca abandona su navegador.",
+      "step2Eyebrow": "PASO 2 DE 3 · CÓDIGO DE RECUPERACIÓN",
+      "step2Title": "Anotar código de recuperación",
+      "step2Subtitle": "Su único recurso de respaldo. NachKlang no puede reenviarlo.",
+      "step3Eyebrow": "PASO 3 DE 3 · CONFIRMACIÓN",
+      "step3Title": "Confirmar código de recuperación",
+      "step3Subtitle": "Introduzca el código de recuperación de nuevo para confirmar.",
+      "backLabel": "← Volver al código",
+      "openVaultButton": "Abrir bóveda",
+      "passkeyErrorGeneric": "No se pudo crear la clave de acceso. Por favor, use un dispositivo compatible con PRF."
+    },
+    "shell": {
+      "logoAriaLabel": "NachKlang Inicio",
+      "stepIndicatorAriaLabel": "Paso {step} de {total}",
+      "defaultBackLabel": "Volver",
+      "footerImpressum": "Aviso legal",
+      "footerDatenschutz": "Política de privacidad",
+      "footerCopyright": "Copyright"
+    },
+    "passkey": {
+      "hintCapable": "Su bóveda se asegurará con una clave de acceso en este dispositivo. Nada sale de su navegador sin cifrar.",
+      "hintIncapable": "Este dispositivo puede no soportar claves de acceso compatibles con PRF. Por favor, use un dispositivo reciente.",
+      "createBusy": "Creando clave de acceso…",
+      "createButton": "Crear clave de acceso"
+    },
+    "recovery": {
+      "continueButton": "Continuar →",
+      "printTitle": "NachKlang Recovery Kit",
+      "printLabelEmail": "Correo electrónico",
+      "printLabelVaultId": "ID de bóveda",
+      "printLabelCreatedAt": "Creado el",
+      "printLabelCode": "Código de recuperación",
+      "printNote": "Guarde este código en un lugar seguro. Es su único medio para restaurar su bóveda si su clave de acceso ya no está disponible. NachKlang no puede reenviar el código.",
+      "printButton": "Imprimir"
+    },
+    "recoveryPrint": {
+      "heading": "NachKlang Recovery Kit",
+      "labelEmail": "Correo electrónico",
+      "labelVaultId": "ID de bóveda",
+      "labelCreatedAt": "Creado el",
+      "labelCode": "Código de recuperación",
+      "note": "Guarde este código en un lugar seguro. Es su único medio para restaurar su bóveda si olvida la frase secreta. NachKlang no puede reenviar el código."
+    },
+    "confirmation": {
+      "codeLabel": "Código de recuperación",
+      "mismatchError": "El código no coincide.",
+      "consentLabel": "He guardado el código de forma segura y entiendo que es mi único recurso de respaldo.",
+      "backButton": "← Volver al código",
+      "defaultSubmitLabel": "Crear bóveda"
+    }
+  },
+  "chrome": {
+    "app": {
+      "desktopRailAriaLabel": "Áreas principales de la aplicación",
+      "mobileNavAriaLabel": "Áreas principales de la aplicación",
+      "navVault": "Bóveda",
+      "navSettings": "Ajustes",
+      "navShared": "Compartido conmigo",
+      "navAudit": "Registro de actividad"
+    },
+    "skipToWorkspace": "Ir directamente a la bóveda"
+  },
+  "audit": {
+    "eyebrow": "Transparencia",
+    "heading": "Registro de actividad",
+    "lead": "Una visión trazable de toda la actividad en su cuenta y su bóveda, incluidas las eliminaciones por parte de la administración del sistema o de la automatización.",
+    "empty": "Todavía no hay entradas en el registro.",
+    "actorSystem": "Sistema",
+    "actorUser": "Cuenta",
+    "someoneTrusted": "Una persona de confianza",
+    "anEntry": "una entrada",
+    "event": {
+      "shareInvited": "Has invitado a una persona de confianza.",
+      "shareAccepted": "{name} aceptó tu invitación.",
+      "shareAcceptedSelf": "Has aceptado una invitación.",
+      "shareSealed": "Has concedido acceso de lectura a una persona de confianza.",
+      "shareRevoked": "Has revocado el acceso de una persona de confianza.",
+      "sharePurged": "Has eliminado definitivamente a una persona de confianza.",
+      "vaultRead": "{name} abrió tu bóveda.",
+      "statusChanged": "{name} actualizó el estado de «{entry}».",
+      "statusChangedSelf": "Has actualizado un estado de gestión.",
+      "userDeleted": "Tu cuenta fue eliminada.",
+      "vaultDeleted": "Tu bóveda fue eliminada.",
+      "itemDeleted": "Se eliminó una entrada de tu bóveda.",
+      "shareDeleted": "Se eliminó un acceso compartido.",
+      "inviteDeleted": "Se eliminó una invitación.",
+      "keypairDeleted": "Tu par de claves fue eliminado.",
+      "passkeyDeleted": "Se eliminó un passkey.",
+      "generic": "Actividad del sistema: {action}"
+    }
+  },
+  "marketing": {
+    "hero": {
+      "signinLink": "Iniciar sesión",
+      "eyebrow": "Conocimiento Cero · Legado Digital",
+      "headline1": "Preservar.",
+      "headline2": "Conectar.",
+      "headline3": "Transmitir.",
+      "lede": "Una bóveda para accesos en línea que nunca ve sus contraseñas — y que llega exactamente a las personas a quienes algún día desea confiar la llave.",
+      "ctaCreate": "Crear cuenta",
+      "ctaSignin": "¿Ya tiene sesión iniciada? Abrir bóveda",
+      "footerAriaLabel": "Legal",
+      "footerCopy": "© NC AGENTIC GmbH",
+      "footerImpressum": "Aviso legal",
+      "footerDatenschutz": "Política de privacidad",
+      "footerCopyright": "Copyright"
+    },
+    "trustStrip": {
+      "ariaLabel": "Señales de confianza",
+      "euDataProtection": "Protección de datos UE",
+      "hostedInGermany": "Alojado en Alemania",
+      "zeroKnowledge": "Conocimiento cero por diseño"
+    },
+    "links": {
+      "ariaLabel": "Código fuente y contacto",
+      "sourceLabel": "Open Source",
+      "sourceMeta": "Código fuente en GitHub",
+      "profileLabel": "Gerald Fehringer",
+      "profileMeta": "Perfil en LinkedIn",
+      "donateLabel": "Donar",
+      "donateMeta": "Apoyar el alojamiento",
+      "donateTip": "¿Desea mantener la plataforma activa? No dude en donar para el alojamiento seguro en Hetzner."
+    }
+  },
+  "legal": {
+    "shell": {
+      "backAriaLabel": "Volver a la página de inicio",
+      "backLabel": "Volver"
+    },
+    "cookieBanner": {
+      "title": "Cookies y privacidad",
+      "text": "NachKlang utiliza únicamente cookies técnicamente necesarias para la autenticación y la gestión de sesiones. Sin rastreo, sin publicidad. Más información en nuestra <privacyLink>Política de privacidad</privacyLink>.",
+      "btnEssential": "Solo esenciales",
+      "btnAcceptAll": "Aceptar todo"
+    },
+    "info": {
+      "labelEmail": "Correo electrónico",
+      "labelManagingDirector": "Director gerente",
+      "labelRegisterCourt": "Tribunal registral",
+      "labelCommercialRegisterNumber": "Número de registro mercantil",
+      "labelResponsible": "Responsable del contenido según § 18 párr. 2 MStV"
+    },
+    "impressum": {
+      "eyebrow": "Legal",
+      "title": "Aviso legal",
+      "intro": "Información conforme al § 5 de la Ley de Medios Electrónicos (TMG) y al § 18 párr. 2 del Tratado Interestatal de Medios (MStV).",
+      "sectionProviderTitle": "Proveedor",
+      "sectionContactTitle": "Contacto",
+      "sectionManagingDirectorTitle": "Director gerente",
+      "sectionRegisterTitle": "Inscripción registral",
+      "sectionResponsibleTitle": "Responsable del contenido según § 18 párr. 2 MStV",
+      "sectionDisputeTitle": "Resolución de disputas",
+      "sectionDisputeBody": "La Comisión Europea proporciona una plataforma de resolución de disputas en línea: <odrLink>ec.europa.eu/consumers/odr</odrLink>. No estamos dispuestos ni obligados a participar en procedimientos de resolución de disputas ante una junta de arbitraje de consumidores.",
+      "sectionLiabilityContentTitle": "Responsabilidad por el contenido",
+      "sectionLiabilityContentBody": "Como proveedor de servicios, somos responsables de nuestro propio contenido en estas páginas de acuerdo con el § 7 párr. 1 TMG. Sin embargo, conforme a los §§ 8 a 10 TMG, no estamos obligados a supervisar la información de terceros transmitida o almacenada ni a investigar circunstancias que indiquen actividad ilegal.",
+      "sectionLiabilityLinksTitle": "Responsabilidad por enlaces",
+      "sectionLiabilityLinksBody": "Nuestro sitio contiene enlaces a sitios web de terceros externos sobre cuyo contenido no tenemos control. El proveedor u operador respectivo de las páginas enlazadas es siempre responsable de su contenido."
+    },
+    "datenschutz": {
+      "eyebrow": "Legal",
+      "title": "Política de privacidad",
+      "introTemplate": "Vigente desde: {date}. Esta política le informa conforme al Art. 13 RGPD sobre los datos personales que procesamos cuando utiliza {product}, con qué finalidad y sobre qué base legal.",
+      "s1Title": "1. Responsable del tratamiento",
+      "s1Body": "El responsable del tratamiento en el sentido del RGPD es:",
+      "s2Title": "2. Principio de conocimiento cero",
+      "s2Body": "{product} está diseñado como una bóveda de conocimiento cero (zero‑knowledge). El contenido de su bóveda (credenciales, notas, metadatos sobre servicios en línea) se cifra y descifra exclusivamente en su navegador. En nuestros servidores, este contenido solo existe en forma cifrada (AES‑256‑GCM; las entradas más antiguas pueden estar cifradas con XChaCha20‑Poly1305 y se migran automáticamente). La clave nunca sale de su dispositivo, ni siquiera en la memoria de nuestros servidores. Técnicamente no podemos ver, recuperar ni descifrar el contenido de su bóveda.",
+      "s3Title": "3. Datos que procesamos",
+      "s31Title": "3.1 Datos de cuenta",
+      "s31Body": "Al registrarse, procesamos su nombre y su dirección de correo electrónico. El inicio de sesión es sin contraseña, mediante clave de acceso (passkey, WebAuthn). Para verificar su identidad en el registro y como inicio de sesión de reserva, enviamos códigos de un solo uso (OTP) por correo electrónico. No almacenamos contraseñas. Base jurídica: art. 6, ap. 1, lit. b) del RGPD (ejecución de un contrato).",
+      "s32Title": "3.2 Inicio de sesión con clave de acceso (WebAuthn)",
+      "s32Body": "Para el inicio de sesión sin contraseña, almacenamos las credenciales de sus claves de acceso (ID de credencial y clave pública). La clave privada permanece únicamente en su dispositivo y nunca se nos transmite. Base jurídica: art. 6, ap. 1, lit. f) del RGPD (interés legítimo en la seguridad de la cuenta).",
+      "s33Title": "3.3 Datos de la bóveda",
+      "s33Body": "Todo el contenido de la bóveda se almacena exclusivamente en forma cifrada. Del lado del servidor solo se almacenan el texto cifrado, el nonce y los metadatos vinculados (ID de bóveda, ID de elemento, contador de revisiones). Base legal: Art. 6(1)(b) RGPD.",
+      "s34Title": "3.4 Registros del servidor",
+      "s34Body": "Al acceder a la aplicación, nuestro proveedor de alojamiento procesa datos técnicamente necesarios (dirección IP, fecha y hora, URL solicitada, agente de usuario). Estos datos se almacenan durante un máximo de 14 días para prevenir abusos. Base legal: Art. 6(1)(f) RGPD.",
+      "s35Title": "3.5 Protección contra bots (Cloudflare Turnstile)",
+      "s35Body": "Para prevenir ataques automatizados y registros masivos, utilizamos Cloudflare Turnstile durante el registro. Su dirección IP e información técnica del navegador se transmiten a Cloudflare y se procesan para verificar si la solicitud proviene de un humano. El proveedor es Cloudflare, Inc. (EE. UU.); existe un acuerdo de procesamiento de datos con cláusulas contractuales estándar. Turnstile no establece cookies de seguimiento. Base legal: Art. 6(1)(f) RGPD (interés legítimo en prevenir abusos).",
+      "s4Title": "4. Cookies",
+      "s4Body": "{product} utiliza únicamente cookies técnicamente necesarias para la autenticación y la gestión de sesiones. No se establecen cookies de seguimiento, análisis ni publicidad. Base legal: § 25 párr. 2 n.º 2 TTDSG.",
+      "s5Title": "5. Alojamiento",
+      "s5Body": "Alojamos {product} con {provider}. Existe un acuerdo de procesamiento de datos conforme al Art. 28 RGPD. El procesamiento se realiza exclusivamente en servidores en Alemania.",
+      "s6Title": "6. Envío de correos electrónicos",
+      "s6Body": "Los correos electrónicos transaccionales (verificación, notificaciones de seguridad) se envían a través de {mailService}. Existe un acuerdo de procesamiento de datos. La dirección del destinatario y el estado de entrega se almacenan durante un máximo de 30 días.",
+      "s7Title": "7. Sus derechos",
+      "s7Intro": "Usted tiene en todo momento el derecho a:",
+      "s7Right1": "acceder a sus datos almacenados con nosotros (Art. 15 RGPD),",
+      "s7Right2": "rectificación de datos inexactos (Art. 16 RGPD),",
+      "s7Right3": "supresión de sus datos (Art. 17 RGPD),",
+      "s7Right4": "limitación del tratamiento (Art. 18 RGPD),",
+      "s7Right5": "portabilidad de datos (Art. 20 RGPD),",
+      "s7Right6": "oposición al tratamiento (Art. 21 RGPD).",
+      "s7ContactPrefix": "Para ejercer estos derechos, basta con un mensaje informal a nuestro contacto de protección de datos:",
+      "s8Title": "8. Derecho de reclamación",
+      "s8Body": "Tiene derecho a presentar una reclamación ante una autoridad de control de protección de datos. La autoridad competente para nosotros es el Comisionado de Hamburgo para la Protección de Datos y la Libertad de Información, Ludwig-Erhard-Strasse 22, 20459 Hamburgo.",
+      "s9Title": "9. Seguridad de los datos",
+      "s9Body": "Implementamos medidas técnicas y organizativas para proteger sus datos contra manipulaciones accidentales o intencionadas, pérdida, destrucción o acceso no autorizado. Estas incluyen cifrado de transporte TLS, bases de datos cifradas, auditorías de seguridad periódicas y el modelo de conocimiento cero.",
+      "s10Title": "10. Cambios en esta política",
+      "s10Body": "Nos reservamos el derecho de actualizar esta política de privacidad si lo requieren razones legales o técnicas. Anunciaremos los cambios materiales por correo electrónico."
+    },
+    "copyright": {
+      "eyebrow": "Legal",
+      "title": "Copyright y marcas",
+      "introTemplate": "© {year} {company}. Todos los derechos reservados.",
+      "s1Title": "Derechos de autor",
+      "s1Body": "El contenido, las obras y los diseños publicados en las páginas de {product} — en particular textos, gráficos, marcas verbales, logotipos y el código fuente de la aplicación — están sujetos a la ley de derechos de autor alemana y a los convenios internacionales de derechos de autor. Cualquier reproducción, modificación, distribución u otra explotación más allá de los límites de la ley de derechos de autor requiere el consentimiento previo por escrito de {company}.",
+      "s2Title": "Marcas registradas",
+      "s2Body": "\"NachKlang\" y la marca verbal-figurativa asociada son marcas registradas de {company}. El uso sin permiso expreso — especialmente con fines comerciales o de manera que pueda causar confusión — no está permitido. Las referencias a marcas de terceros sirven únicamente para fines de identificación y siguen siendo propiedad de sus respectivos titulares.",
+      "s3Title": "Avisos de licencias de software",
+      "s3Body": "{product} utiliza componentes de código abierto bajo sus respectivas licencias (incluyendo MIT, Apache 2.0, ISC). Una lista de las bibliotecas utilizadas y sus textos de licencia está disponible bajo solicitud.",
+      "s4Title": "Créditos de imágenes",
+      "s4Body": "Todas las marcas verbales, iconos e ilustraciones fueron creados por encargo de {company} o provienen de fuentes libres de derechos con una licencia que permite expresamente su uso en {product}.",
+      "s5Title": "Contacto para consultas de licencias",
+      "s5Body": "Dirija sus consultas sobre licencias, reutilización o material de prensa a <email/>."
+    }
+  },
+  "email": {
+    "otp": {
+      "subject": "Código NachKlang por correo",
+      "intro": "Tu código NachKlang por correo es:",
+      "logoAlt": "NachKlang",
+      "expiry": "El código es válido durante 10 minutos. Si no lo solicitó, puede ignorar este correo.",
+      "footer": "Este mensaje se envió automáticamente desde NachKlang. Por favor, no responda."
+    },
+    "invite": {
+      "subject": "{owner} quiere darte acceso a un legado digital",
+      "logoAlt": "NachKlang",
+      "heading": "Has sido invitado como persona de confianza",
+      "intro": "{owner} quiere darte acceso de lectura a su legado digital en NachKlang. Todo permanece cifrado de extremo a extremo — solo obtendrás acceso tras un paso de confirmación conjunto.",
+      "cta": "Aceptar invitación",
+      "expiry": "Este enlace es válido durante {days} días. Si no esperabas esta invitación, puedes ignorar este correo.",
+      "footer": "Este mensaje se envió automáticamente desde NachKlang. Por favor, no responda."
+    },
+    "offboarding": {
+      "subject": "{owner} eliminó su cuenta de NachKlang — tu acceso ha finalizado",
+      "intro": "{owner} ha eliminado definitivamente su cuenta de NachKlang.",
+      "body": "Por lo tanto, tu acceso de lectura al legado digital compartido ha finalizado. Todos los datos asociados se han eliminado de forma irreversible.",
+      "footer": "Este mensaje fue enviado automáticamente por NachKlang. Por favor, no respondas."
+    },
+    "errors": {
+      "sendMailFailed": "Fallo al enviar el correo electrónico.",
+      "tokenFetchFailed": "No se pudo obtener el token de autenticación.",
+      "tokenMissing": "No se incluyó ningún token de acceso en la respuesta del servidor."
+    }
+  },
+  "trustee": {
+    "owner": {
+      "heading": "Personas de confianza",
+      "lead": "Dé a una persona de confianza acceso de lectura a su legado digital. El acceso está cifrado de extremo a extremo y solo se activa tras un paso de confirmación conjunto.",
+      "emailLabel": "Correo de la persona de confianza",
+      "nameLabel": "Etiqueta (p. ej. «Mi hermana»)",
+      "submit": "Invitar",
+      "submitBusy": "Enviando invitación…",
+      "invitedEmailed": "Invitación enviada a {email}.",
+      "invitedNoMail": "Invitación creada. El envío del correo falló: comparta el enlace manualmente.",
+      "copyLink": "Copiar enlace",
+      "copied": "Copiado",
+      "listHeading": "Personas de confianza actuales",
+      "empty": "Aún no se ha invitado a ninguna persona de confianza.",
+      "fingerprintLabel": "Código de confirmación",
+      "fingerprintHint": "Compare este código con su persona de confianza en persona o por teléfono antes de conceder el acceso.",
+      "statusPendingVerify": "Esperando confirmación",
+      "statusActive": "Activo",
+      "statusRevoked": "Revocado",
+      "seal": "Confirmar y conceder",
+      "sealBusy": "Concediendo…",
+      "revoke": "Revocar acceso",
+      "revokeBusy": "Revocando…",
+      "purge": "Eliminar definitivamente",
+      "purgeBusy": "Eliminando…",
+      "createdAt": "Invitado el {date}",
+      "lastAccess": "Último acceso el {date}",
+      "neverAccessed": "Aún no se ha accedido",
+      "accessCount": "Accedido {count}×",
+      "showLog": "Mostrar historial de acceso",
+      "hideLog": "Ocultar historial",
+      "logEmpty": "Aún no hay accesos.",
+      "error": "La acción falló. Inténtelo de nuevo."
+    },
+    "accept": {
+      "eyebrow": "Invitación",
+      "heading": "Acceso como persona de confianza",
+      "lead": "{owner} quiere darle acceso de lectura a su legado digital.",
+      "loading": "Cargando invitación…",
+      "invalid": "Esta invitación no es válida o no se ha encontrado.",
+      "notAcceptable": "Esta invitación ha caducado o ya se ha utilizado.",
+      "acceptCta": "Aceptar invitación",
+      "acceptBusy": "Confirmando…",
+      "successHeading": "Casi listo",
+      "successLead": "Lea este código de confirmación en voz alta a {owner} para verificar su identidad. En cuanto {owner} confirme, obtendrá acceso.",
+      "fingerprintLabel": "Su código de confirmación",
+      "error": "La aceptación falló. Inténtelo de nuevo.",
+      "authPrompt": "Para aceptar esta invitación necesita una cuenta de NachKlang con una passkey (p. ej. Touch ID, una llave de seguridad o una passkey de teléfono).",
+      "createAccount": "Crear cuenta",
+      "signIn": "Iniciar sesión",
+      "finishSetup": "Completar configuración",
+      "registerAndAccept": "Crear passkey y aceptar",
+      "waitingHeading": "Casi listo",
+      "waitingLead": "Muéstrele a {owner} este código de confirmación. En cuanto {owner} conceda el acceso, la caja fuerte aparecerá en «Compartido conmigo».",
+      "toShared": "Ir a «Compartido conmigo»",
+      "reopenNote": "Después, abra de nuevo el enlace de invitación de su correo para aceptar.",
+      "backToVault": "Ir a mi caja fuerte"
+    },
+    "shared": {
+      "listEyebrow": "Compartido",
+      "listHeading": "Compartido conmigo",
+      "listLead": "Estas cajas fuertes se han compartido contigo como persona de confianza.",
+      "empty": "Por ahora no hay ninguna caja fuerte compartida contigo.",
+      "ownerLabel": "Compartido por {owner}",
+      "open": "Abrir",
+      "viewEyebrow": "Caja fuerte compartida",
+      "viewHeading": "Caja fuerte compartida",
+      "ownerBadge": "Caja fuerte de {owner}",
+      "ownerUpdated": "Última actualización del titular: {date}",
+      "readOnly": "Solo lectura",
+      "unlockLead": "Desbloquee con su passkey para ver las entradas compartidas.",
+      "unlock": "Desbloquear con passkey",
+      "unlockBusy": "Desbloqueando…",
+      "forbidden": "No tiene acceso activo a esta caja fuerte.",
+      "error": "No se pudo cargar. Inténtelo de nuevo.",
+      "entriesEmpty": "Esta caja fuerte no contiene entradas.",
+      "fieldLogin": "Acceso",
+      "fieldStatus": "Estado",
+      "handlingStatus": "Tu estado de gestión",
+      "handlingStatusHint": "Solo tu anotación: la entrada del titular permanece sin cambios.",
+      "handlingStatusUnset": "Aún no gestionado",
+      "fieldHint": "Indicaciones",
+      "fieldNotes": "Notas",
+      "fieldEmpty": "—",
+      "back": "← Volver al resumen"
+    }
+  },
+  "account": {
+    "settings": {
+      "eyebrow": "Cuenta",
+      "heading": "Ajustes de la cuenta",
+      "lead": "Gestiona tu cuenta.",
+      "backLink": "← Volver al resumen"
+    }
+  },
+  "auth": {
+    "signin": {
+      "eyebrow": "Iniciar sesión",
+      "title": "Bienvenido de nuevo",
+      "subtitle": "Inicia sesión con tu clave de acceso.",
+      "createAccountCta": "¿Sin cuenta? Crear una ahora",
+      "submitBusy": "Iniciando sesión…",
+      "submit": "Iniciar sesión con clave de acceso",
+      "errorGeneric": "Error al iniciar sesión con clave de acceso.",
+      "errorWrongPasskey": "Passkey incorrecto. Usa el passkey o la llave de seguridad que configuraste para esta cuenta (si tienes varias llaves de Windows Hello / dispositivo, elige la correcta) o inicia sesión con el código de correo de abajo.",
+      "errorVaultMaterial": "Material del almacén no disponible.",
+      "emailFallbackToggle": "¿Sin clave de acceso? Iniciar sesión con código de email"
+    },
+    "shell": {
+      "logoAriaLabel": "NachKlang Inicio",
+      "footerImpressum": "Aviso legal",
+      "footerDatenschutz": "Política de privacidad",
+      "footerCopyright": "Copyright"
+    },
+    "emailOtp": {
+      "nameLabel": "Nombre",
+      "emailLabel": "Correo electrónico",
+      "submitDefault": "Solicitar código",
+      "errorNameRequired": "Por favor, introduce un nombre.",
+      "errorEmailInvalid": "Por favor, introduce una dirección de correo válida.",
+      "errorCaptchaRequired": "Por favor, completa la verificación de seguridad.",
+      "errorRequestFailed": "No se pudo solicitar el código. Por favor, inténtalo de nuevo."
+    },
+    "emailOtpSignup": {
+      "eyebrow": "Registro",
+      "title": "Crear cuenta",
+      "subtitleStep1": "Paso 1 de 2: Te enviaremos un código por correo.",
+      "subtitleStep2": "Paso 2 de 2: Introduce el código de tu correo.",
+      "existingAccountCta": "¿Ya tienes cuenta? Iniciar sesión"
+    },
+    "emailOtpSignin": {
+      "submitLabel": "Enviar código a mi correo"
+    },
+    "otpVerify": {
+      "codeSentNotice": "Hemos enviado un código a {email}.",
+      "codeLabel": "Código",
+      "submit": "Confirmar",
+      "errorCodeLength": "Por favor, introduce el código de 6 dígitos.",
+      "errorCodeInvalid": "Código inválido o expirado. Por favor, inténtalo de nuevo."
+    },
+    "verifyEmailResult": {
+      "eyebrow": "Registro",
+      "title": "Confirmar correo",
+      "subtitle": "Paso 2 de 3",
+      "verifying": "Confirmando enlace...",
+      "successMessage": "Tu correo ha sido confirmado.",
+      "successCta": "Continuar a la configuración",
+      "errorMessage": "Enlace expirado o inválido. Por favor, regístrate de nuevo."
+    },
+    "turnstile": {
+      "widgetAriaLabel": "Verificación de seguridad"
+    },
+    "signedInBadge": {
+      "lock": "Bloquear",
+      "signOut": "Cerrar sesión"
+    }
+  }
+}

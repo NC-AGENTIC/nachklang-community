@@ -1,0 +1,258 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model user {
+  id               String      @id @default(cuid())
+  name             String
+  email            String      @unique
+  emailVerified    Boolean     @default(false)
+  image            String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  sessions         session[]
+  accounts         account[]
+  passkeys         passkey[]
+  vaults           Vault[]
+  keypair          UserKeypair?
+  trusteeShares    VaultShare[]
+  itemProgress     ShareItemProgress[]
+
+  @@map("user")
+}
+
+model session {
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("session")
+}
+
+model account {
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  user                  user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("account")
+}
+
+model verification {
+  id         String    @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
+
+model passkey {
+  id           String    @id @default(cuid())
+  name         String?
+  publicKey    String
+  userId       String
+  credentialID String
+  counter      Int
+  deviceType   String
+  backedUp     Boolean
+  transports   String?
+  createdAt    DateTime? @default(now())
+  aaguid       String?
+  user         user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([credentialID])
+  @@index([userId])
+  @@map("passkey")
+}
+
+model Vault {
+  id                       String           @id @default(cuid())
+  userId                   String           @unique
+  vaultId                  String           @unique
+  version                  Int              @default(1)
+  kdfPolicy                Json
+  recoveryWrappedRootKey   Json?
+  manifestPublicKey        String?
+  latestManifestHash       String?
+  latestManifestNonce      String?
+  createdAt                DateTime         @default(now())
+  updatedAt                DateTime         @updatedAt
+  user                     user             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ciphertexts              VaultCiphertext[]
+  passkeyKeys              VaultPasskeyKey[]
+  shares                   VaultShare[]
+  invites                  ShareInvite[]
+  itemProgress             ShareItemProgress[]
+}
+
+model VaultPasskeyKey {
+  id           String   @id @default(cuid())
+  vaultId      String
+  credentialID String
+  wrapped      Json
+  createdAt    DateTime @default(now())
+  vault        Vault    @relation(fields: [vaultId], references: [vaultId], onDelete: Cascade)
+
+  @@unique([vaultId, credentialID])
+  @@index([vaultId])
+  @@index([credentialID])
+}
+
+model VaultCiphertext {
+  id             String   @id @default(cuid())
+  vaultId        String
+  itemId         String
+  ownerId        String
+  revision       Int
+  algorithm      String
+  nonceBase64    String
+  ciphertextBase64 String
+  associatedData Json
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  vault          Vault    @relation(fields: [vaultId], references: [vaultId], onDelete: Cascade)
+
+  @@unique([vaultId, itemId])
+  @@index([vaultId])
+  @@index([ownerId])
+}
+
+// --- Trustee sharing (digital legacy) ---
+
+model UserKeypair {
+  id                        String                  @id @default(cuid())
+  userId                    String                  @unique
+  publicKey                 String
+  recoveryWrappedPrivateKey Json?
+  createdAt                 DateTime                @default(now())
+  user                      user                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  passkeyKeys               UserKeypairPasskeyKey[]
+}
+
+model UserKeypairPasskeyKey {
+  id           String      @id @default(cuid())
+  keypairId    String
+  credentialID String
+  wrapped      Json
+  createdAt    DateTime    @default(now())
+  keypair      UserKeypair @relation(fields: [keypairId], references: [id], onDelete: Cascade)
+
+  @@unique([keypairId, credentialID])
+  @@index([keypairId])
+}
+
+model ShareInvite {
+  id           String   @id @default(cuid())
+  token        String   @unique
+  vaultId      String
+  inviteeEmail String
+  label        String
+  status       String   @default("invited")
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  vault        Vault    @relation(fields: [vaultId], references: [vaultId], onDelete: Cascade)
+
+  @@index([vaultId])
+  @@index([inviteeEmail])
+}
+
+model VaultShare {
+  id                 String           @id @default(cuid())
+  vaultId            String
+  trusteeUserId      String
+  label              String
+  status             String           @default("pending_verify")
+  trusteePublicKey   String
+  trusteeFingerprint String
+  sealedRootKey      String?
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+  vault              Vault            @relation(fields: [vaultId], references: [vaultId], onDelete: Cascade)
+  trustee            user             @relation(fields: [trusteeUserId], references: [id], onDelete: Cascade)
+  accessLogs         ShareAccessLog[]
+
+  @@unique([vaultId, trusteeUserId])
+  @@index([vaultId])
+  @@index([trusteeUserId])
+}
+
+model ShareAccessLog {
+  id            String     @id @default(cuid())
+  shareId       String
+  trusteeUserId String
+  accessedAt    DateTime   @default(now())
+  ipAddress     String?
+  userAgent     String?
+  share         VaultShare @relation(fields: [shareId], references: [id], onDelete: Cascade)
+
+  @@index([shareId])
+}
+
+// A trustee's per-item handling progress (digital-legacy worklist). Stored as a separate overlay
+// so the owner's encrypted entry is never modified — read-only stays read-only. The status is
+// itself encrypted with the vault Root Key (the trustee holds it after unlock), so the server
+// stays zero-knowledge. Keyed per (vault, item, trustee): each trustee tracks their own progress.
+model ShareItemProgress {
+  id              String   @id @default(cuid())
+  vaultId         String
+  itemId          String
+  trusteeUserId   String
+  nonceBase64     String
+  ciphertextBase64 String
+  updatedAt       DateTime @updatedAt
+  createdAt       DateTime @default(now())
+  vault           Vault    @relation(fields: [vaultId], references: [vaultId], onDelete: Cascade)
+  trustee         user     @relation(fields: [trusteeUserId], references: [id], onDelete: Cascade)
+
+  @@unique([vaultId, itemId, trusteeUserId])
+  @@index([vaultId, trusteeUserId])
+}
+
+// Immutable transparency log. Rows are written both by the app (rich, semantic events) and by
+// database triggers (a backstop that captures EVERY delete on user-scoped tables — even a raw
+// psql/admin/automation deletion). targetUserId/targetEmail are deliberately FK-free so an audit
+// row SURVIVES deletion of the user/data it describes.
+model AuditEvent {
+  id          String   @id @default(cuid())
+  occurredAt  DateTime @default(now())
+  source      String // "app" | "db"
+  actor       String // "user" | "system"
+  actorUserId String?
+  action      String
+  targetUserId String?
+  targetEmail String?
+  vaultId     String?
+  summary     String?
+  metadata    Json?
+
+  @@index([targetUserId])
+  @@index([targetEmail])
+  @@index([occurredAt])
+}

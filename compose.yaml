@@ -1,0 +1,152 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - path: .env
+        required: false
+      - path: .env.local
+        required: false
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER:-nachklang}:${POSTGRES_PASSWORD:-nachklang-dev-password}@postgres:5432/${POSTGRES_DB:-nachklang}?schema=public
+      NACHKLANG_APP_URL: ${NACHKLANG_APP_URL:-http://localhost}
+      BETTER_AUTH_URL: ${BETTER_AUTH_URL:-http://localhost}
+      WEBAUTHN_RP_ID: ${WEBAUTHN_RP_ID:-localhost}
+      NACHKLANG_GRAPH_AUTH_MODE: ${NACHKLANG_GRAPH_AUTH_MODE:-client-secret}
+      # Dev/e2e only: capture OTP codes to a file instead of relying on a real inbox.
+      # Empty in production so codes are never persisted to the container filesystem.
+      NACHKLANG_MAIL_CAPTURE_PATH: ${NACHKLANG_MAIL_CAPTURE_PATH:-}
+      # Dev/e2e only: disable Better Auth rate limiting (e2e shares one IP). Empty in
+      # production so rate limiting is ON.
+      NACHKLANG_DISABLE_RATE_LIMIT: ${NACHKLANG_DISABLE_RATE_LIMIT:-}
+      # E2E-only: when set to "1", the client substitutes deterministic PRF bytes
+      # (virtual authenticators can't do real WebAuthn PRF). Empty by default so the
+      # real biometric PRF path runs in normal use.
+      NACHKLANG_E2E_PRF_STUB: ${NACHKLANG_E2E_PRF_STUB:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      valkey:
+        condition: service_started
+    read_only: true
+    tmpfs:
+      - /tmp
+      # Writable ephemeral cache for next/image optimization (read_only rootfs would
+      # otherwise throw ENOENT mkdir '/app/.next/cache').
+      - /app/.next/cache
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  caddy:
+    build:
+      context: .
+      dockerfile: ops/caddy/Dockerfile
+    image: nachklang-caddy:2.10.2-ratelimit
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      # Local dev defaults to :80 (plain HTTP). In prod set CADDY_SITE_ADDRESS to the
+      # domain (e.g. nachklang.example.com) and Caddy auto-provisions Let's Encrypt TLS.
+      CADDY_SITE_ADDRESS: ${CADDY_SITE_ADDRESS:-:80}
+      # Edge auth rate-limit budget (events/min/IP). Defaults to 30 for prod; e2e
+      # raises it (all requests share one IP) by exporting CADDY_AUTH_RATE_EVENTS.
+      CADDY_AUTH_RATE_EVENTS: ${CADDY_AUTH_RATE_EVENTS:-30}
+    volumes:
+      - ./ops/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - web
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:18-bookworm@sha256:47855c76129d1383e7efc66a1a776e33c9171b3450e95deb822119e02eaab592
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-nachklang}
+      POSTGRES_USER: ${POSTGRES_USER:-nachklang}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nachklang-dev-password}
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nachklang} -d ${POSTGRES_DB:-nachklang}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  valkey:
+    image: valkey/valkey:8-bookworm@sha256:fea8b3e67b15729d4bb70589eb03367bab9ad1ee89c876f54327fc7c6e618571
+    command: ["valkey-server", "--save", "", "--appendonly", "no"]
+    restart: unless-stopped
+
+  backup:
+    build:
+      context: ./ops/backup
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-nachklang}
+      POSTGRES_USER: ${POSTGRES_USER:-nachklang}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-nachklang-dev-password}
+      POSTGRES_HOST: postgres
+      # Soft default (not :?) so unrelated compose commands (up/down/config) work locally
+      # without this var. backup.sh enforces it at runtime (`: "${AGE_RECIPIENT:?}"`).
+      AGE_RECIPIENT: ${NACHKLANG_BACKUP_AGE_RECIPIENT:-}
+      BACKUP_DIR: /backups
+      BACKUP_KEEP_DAILY: ${NACHKLANG_BACKUP_KEEP_DAILY:-7}
+      BACKUP_KEEP_WEEKLY: ${NACHKLANG_BACKUP_KEEP_WEEKLY:-4}
+      BACKUP_KEEP_MONTHLY: ${NACHKLANG_BACKUP_KEEP_MONTHLY:-6}
+    volumes:
+      - ${NACHKLANG_BACKUP_DIR:-/srv/nachklang-backups}:/backups
+    depends_on:
+      postgres:
+        condition: service_healthy
+    profiles:
+      - backup
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+  migrate:
+    build:
+      context: .
+      dockerfile: ops/migrate/Dockerfile
+    env_file:
+      - path: .env
+        required: false
+      - path: .env.local
+        required: false
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-nachklang}:${POSTGRES_PASSWORD:-nachklang-dev-password}@postgres:5432/${POSTGRES_DB:-nachklang}?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+    profiles:
+      - migrate
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  postgres-data:
+  caddy-data:
+  caddy-config:

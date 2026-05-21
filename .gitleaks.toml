@@ -1,0 +1,13 @@
+# gitleaks configuration for NachKlang.
+# Uses the default ruleset and allowlists known non-secret test fixtures and
+# documented placeholder values (this repo contains no real secrets).
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Non-secret test fixtures and documented placeholders"
+regexes = [
+  # Dev-only placeholder values shipped in .env.example.
+  '''nachklang-dev-password''',
+  '''replace-with-64-random-hex-or-base64''',
+]

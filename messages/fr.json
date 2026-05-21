@@ -1,0 +1,591 @@
+{
+  "meta": {
+    "revision": "2026.1-f2281447"
+  },
+  "common": {
+    "languageSwitcherAria": "Choisir la langue"
+  },
+  "vault": {
+    "workspace": {
+      "eyebrow": "Coffre Zéro-Connaissance",
+      "heading": "Mon coffre",
+      "settingsButton": "Paramètres",
+      "addEntryButton": "Ajouter un accès",
+      "locked": "Coffre verrouillé. Redirection…",
+      "loading": "Chargement des entrées du coffre…",
+      "empty": "Aucune entrée. Ajoutez votre premier accès.",
+      "staleNotice": "Un autre navigateur a mis à jour le coffre. La dernière version a été chargée. Veuillez sauvegarder à nouveau.",
+      "staleReload": "Recharger",
+      "editModeNotice": "Mode édition actif. Ne saisissez pas de mots de passe.",
+      "cancelNotice": "Modification annulée.",
+      "toastUpdated": "Entrée « {name} » mise à jour.",
+      "toastAdded": "Entrée « {name} » ajoutée.",
+      "toastSaveFailed": "Impossible d'enregistrer l'entrée.",
+      "toastDeleted": "Entrée « {name} » supprimée.",
+      "toastDeleteFailed": "Impossible de supprimer l'entrée.",
+      "toastUndo": "Annuler",
+      "toastStatusChanged": "« {name} » : statut défini sur « {status} ».",
+      "toastStatusFailed": "Impossible de modifier le statut.",
+      "errorEntryRemoved": "L'entrée a déjà été supprimée."
+    },
+    "entryForm": {
+      "eyebrowCreate": "Création",
+      "eyebrowEdit": "Modification",
+      "titleCreate": "Ajouter un accès",
+      "titleEdit": "Modifier l'accès",
+      "badge": "Sans champ mot de passe",
+      "labelDisplayName": "Nom du fournisseur",
+      "labelLoginUrl": "URL de connexion",
+      "labelEmailUsed": "E-mail utilisé",
+      "labelUsername": "Nom d'utilisateur",
+      "usernameOptional": "Facultatif",
+      "labelPasswordHint": "Indice d'emplacement du mot de passe",
+      "passwordHintPlaceholder": "Exemple : Dans le gestionnaire 1Password sous le nom du fournisseur. Déverrouiller via Touch ID sur le MacBook de Max.",
+      "passwordHintHelp": "Décrivez clairement <strong_where>où</strong_where> se trouve le mot de passe pour que vos proches puissent le retrouver. Mentionnez aussi les appareils supplémentaires nécessaires. <strong_nopassword>Ne saisissez jamais le mot de passe lui-même ici.</strong_nopassword> Conservez les mots de passe dans un gestionnaire professionnel et référencez-les ici uniquement.",
+      "labelNotes": "Notes",
+      "notesPlaceholder": "Informations, contact, résiliation...",
+      "labelStatus": "Statut",
+      "cancelButton": "Annuler",
+      "saveEditButton": "Enregistrer les modifications",
+      "saveCreateButton": "Enregistrer l'entrée"
+    },
+    "entryCard": {
+      "ariaLabel": "Entrée coffre {name}",
+      "ariaActions": "Actions {name}",
+      "ariaStatusChange": "Modifier le statut de {name}",
+      "ariaEdit": "Modifier {name}",
+      "ariaDelete": "Supprimer {name}",
+      "revisionLabel": "Rév. {rev}",
+      "labelLogin": "Connexion",
+      "labelIdentity": "Identité",
+      "noEmail": "Aucun e-mail",
+      "noUsername": "Aucun nom d'utilisateur",
+      "labelPasswordHint": "Indice mot de passe",
+      "noPasswordHint": "Aucun indice enregistré",
+      "labelNotes": "Notes",
+      "noNotes": "Aucune note enregistrée",
+      "labelStatus": "Statut",
+      "lastChanged": "Dernière modification : {date}",
+      "noteAria": "Note pour {name} : {note}"
+    },
+    "entriesList": {
+      "eyebrow": "Liste de travail",
+      "heading": "Entrées du coffre",
+      "searchAriaLabel": "Rechercher dans les entrées du coffre",
+      "searchPlaceholder": "Rechercher",
+      "listAriaLabel": "Entrées du coffre"
+    },
+    "summary": {
+      "ariaLabel": "Résumé du coffre",
+      "labelEntries": "Entrées du coffre",
+      "labelDecrypted": "déchiffré localement",
+      "labelActive": "Encore actif",
+      "allActive": "Tous les accès actifs"
+    },
+    "settings": {
+      "eyebrow": "Paramètres",
+      "heading": "Paramètres du coffre",
+      "lead": "Exportez vos entrées dans un fichier ZIP protégé par mot de passe (AES-256) pour une sauvegarde sécurisée.",
+      "locked": "Coffre verrouillé. Redirection…",
+      "noticeDefault": "Définissez un mot de passe pour créer le ZIP chiffré.",
+      "noticeReady": "Export chiffré (ZIP) téléchargé.",
+      "noticeBlocked": "Veuillez définir un mot de passe d'au moins 8 caractères.",
+      "backLink": "← Retour au coffre"
+    },
+    "deleteAccount": {
+      "eyebrow": "Zone sensible",
+      "heading": "Supprimer définitivement le compte",
+      "lead": "Ceci supprime définitivement et irréversiblement votre compte et toutes les données associées.",
+      "exportFirst": "Veuillez exporter vos entrées (ci-dessus) avant de supprimer votre compte.",
+      "start": "Supprimer le compte…",
+      "legal1": "Si vous continuez, les éléments suivants seront supprimés définitivement et irréversiblement :",
+      "legalVaults": "L'intégralité de votre coffre, y compris toutes les entrées.",
+      "legalShares": "Tous les partages — les personnes de confiance invitées sont averties par e-mail.",
+      "legalNoRestore": "Aucune restauration n'est possible. Rien ne peut être récupéré.",
+      "ackLabel": "Je comprends que cette action est définitive et que rien ne peut être restauré.",
+      "cancel": "Annuler",
+      "continue": "Continuer",
+      "confirmWord": "SUPPRIMER",
+      "confirmLead": "Pour confirmer définitivement, veuillez saisir « {word} ».",
+      "confirmInputLabel": "Saisissez « {word} »",
+      "deleteFinal": "Supprimer définitivement le compte",
+      "deleting": "Suppression du compte…",
+      "error": "Échec de la suppression. Veuillez réessayer."
+    },
+    "providerCombobox": {
+      "categoryCloud": "Cloud",
+      "categoryCommerce": "Commerce",
+      "categoryCommunication": "Communication",
+      "categoryEducation": "Éducation",
+      "categoryFinance": "Finance",
+      "categoryHealth": "Santé",
+      "categoryIdentity": "Identité",
+      "categoryInsurance": "Assurance",
+      "categoryMedia": "Médias",
+      "categoryMobility": "Mobilité",
+      "categoryProductivity": "Productivité",
+      "categoryPublic": "Services publics",
+      "categorySocial": "Social",
+      "categoryTravel": "Voyage",
+      "categoryUtilities": "Services essentiels"
+    },
+    "unlock": {
+      "eyebrow": "Coffre",
+      "title": "Déverrouiller",
+      "subtitle": "Confirmez avec votre clé d'accès.",
+      "passkeyBusy": "Déverrouillage…",
+      "passkeySubmit": "Déverrouiller avec la clé d'accès",
+      "passkeyErrorGeneric": "Échec du déverrouillage avec la clé d'accès.",
+      "recoveryToggle": "Clé d'accès indisponible ? Utiliser le code de récupération",
+      "recoveryLabel": "Code de récupération",
+      "recoverySubmit": "Ouvrir le coffre avec le code de récupération",
+      "recoveryErrorGeneric": "Code de récupération invalide.",
+      "recoveryNoMaterial": "Aucun matériel de récupération disponible."
+    },
+    "managePasskeys": {
+      "heading": "Clés d'accès",
+      "hint": "Chaque appareil que vous ajoutez peut déverrouiller votre coffre. La dernière clé d'accès ne peut pas être supprimée.",
+      "unnamed": "Appareil sans nom",
+      "removeButton": "Supprimer",
+      "addBusy": "Veuillez confirmer…",
+      "addButton": "Ajouter cet appareil",
+      "errorGeneric": "Opération échouée.",
+      "loadError": "Matériel du coffre inaccessible.",
+      "deviceFallback": "Cet appareil",
+      "renameButton": "Renommer",
+      "renameLabel": "Nom de l'appareil",
+      "renameSave": "Enregistrer",
+      "renameCancel": "Annuler"
+    },
+    "idleLock": {
+      "ariaLabel": "Avertissement de session",
+      "message": "Le coffre se verrouille dans {seconds}s.",
+      "stayButton": "Rester connecté"
+    },
+    "errors": {
+      "prfNotSupported": "La clé d'accès ne prend pas en charge PRF. Veuillez utiliser un appareil compatible PRF.",
+      "prfSigninFailed": "Échec de la connexion PRF.",
+      "prfUnlockFailed": "Échec du déverrouillage PRF.",
+      "prfKeyNotFound": "Aucune clé stockée pour cette clé d'accès.",
+      "recoveryCodeInvalidChar": "Caractère invalide dans le code de récupération.",
+      "recoveryCodeLength": "Le code de récupération a une longueur incorrecte.",
+      "generic": "Opération échouée."
+    },
+    "lifecycle": {
+      "aktiv": "Actif",
+      "stillgelegt": "Désactivé",
+      "anbieter-informiert": "Fournisseur informé",
+      "geloescht": "Supprimé"
+    }
+  },
+  "onboarding": {
+    "wizard": {
+      "stepLabels": [
+        "Clé d'accès",
+        "Récupération",
+        "Confirmation"
+      ],
+      "step1Eyebrow": "ÉTAPE 1 SUR 3 · CLÉ D'ACCÈS",
+      "step1Title": "Configurer le coffre",
+      "step1Subtitle": "Votre clé d'accès sécurise ce coffre. La clé ne quitte jamais votre navigateur.",
+      "step2Eyebrow": "ÉTAPE 2 SUR 3 · CODE DE RÉCUPÉRATION",
+      "step2Title": "Noter le code de récupération",
+      "step2Subtitle": "Votre seul recours. NachKlang ne peut pas le renvoyer.",
+      "step3Eyebrow": "ÉTAPE 3 SUR 3 · CONFIRMATION",
+      "step3Title": "Confirmer le code de récupération",
+      "step3Subtitle": "Saisissez à nouveau le code de récupération pour confirmer.",
+      "backLabel": "← Retour au code",
+      "openVaultButton": "Ouvrir le coffre",
+      "passkeyErrorGeneric": "Impossible de créer la clé d'accès. Veuillez utiliser un appareil compatible PRF."
+    },
+    "shell": {
+      "logoAriaLabel": "NachKlang Accueil",
+      "stepIndicatorAriaLabel": "Étape {step} sur {total}",
+      "defaultBackLabel": "Retour",
+      "footerImpressum": "Mentions légales",
+      "footerDatenschutz": "Politique de confidentialité",
+      "footerCopyright": "Copyright"
+    },
+    "passkey": {
+      "hintCapable": "Votre coffre sera sécurisé avec une clé d'accès sur cet appareil. Rien ne quitte votre navigateur non chiffré.",
+      "hintIncapable": "Cet appareil ne prend peut-être pas en charge les clés d'accès compatibles PRF. Veuillez utiliser un appareil récent.",
+      "createBusy": "Création de la clé d'accès…",
+      "createButton": "Créer une clé d'accès"
+    },
+    "recovery": {
+      "continueButton": "Continuer →",
+      "printTitle": "NachKlang Recovery Kit",
+      "printLabelEmail": "E-mail",
+      "printLabelVaultId": "ID du coffre",
+      "printLabelCreatedAt": "Créé le",
+      "printLabelCode": "Code de récupération",
+      "printNote": "Conservez ce code en lieu sûr. C'est votre seul moyen de restaurer votre coffre si votre clé d'accès n'est plus disponible. NachKlang ne peut pas renvoyer le code.",
+      "printButton": "Imprimer"
+    },
+    "recoveryPrint": {
+      "heading": "NachKlang Recovery Kit",
+      "labelEmail": "E-mail",
+      "labelVaultId": "ID du coffre",
+      "labelCreatedAt": "Créé le",
+      "labelCode": "Code de récupération",
+      "note": "Conservez ce code en lieu sûr. C'est votre seul moyen de restaurer votre coffre si vous oubliez la phrase secrète. NachKlang ne peut pas renvoyer le code."
+    },
+    "confirmation": {
+      "codeLabel": "Code de récupération",
+      "mismatchError": "Le code ne correspond pas.",
+      "consentLabel": "J'ai conservé le code en lieu sûr et je comprends qu'il est mon seul recours.",
+      "backButton": "← Retour au code",
+      "defaultSubmitLabel": "Créer le coffre"
+    }
+  },
+  "chrome": {
+    "app": {
+      "desktopRailAriaLabel": "Zones principales de l'application",
+      "mobileNavAriaLabel": "Zones principales de l'application",
+      "navVault": "Coffre",
+      "navSettings": "Paramètres",
+      "navShared": "Partagé avec moi",
+      "navAudit": "Journal d'activité"
+    },
+    "skipToWorkspace": "Aller directement au coffre"
+  },
+  "audit": {
+    "eyebrow": "Transparence",
+    "heading": "Journal d'activité",
+    "lead": "Un aperçu traçable de toutes les activités liées à votre compte et à votre coffre — y compris les suppressions par l'administration système ou l'automatisation.",
+    "empty": "Aucune entrée de journal pour le moment.",
+    "actorSystem": "Système",
+    "actorUser": "Compte",
+    "someoneTrusted": "Une personne de confiance",
+    "anEntry": "une entrée",
+    "event": {
+      "shareInvited": "Vous avez invité une personne de confiance.",
+      "shareAccepted": "{name} a accepté votre invitation.",
+      "shareAcceptedSelf": "Vous avez accepté une invitation.",
+      "shareSealed": "Vous avez accordé un accès en lecture à une personne de confiance.",
+      "shareRevoked": "Vous avez révoqué l'accès d'une personne de confiance.",
+      "sharePurged": "Vous avez définitivement supprimé une personne de confiance.",
+      "vaultRead": "{name} a ouvert votre coffre.",
+      "statusChanged": "{name} a mis à jour le statut de « {entry} ».",
+      "statusChangedSelf": "Vous avez mis à jour un statut de traitement.",
+      "userDeleted": "Votre compte a été supprimé.",
+      "vaultDeleted": "Votre coffre a été supprimé.",
+      "itemDeleted": "Une entrée a été supprimée de votre coffre.",
+      "shareDeleted": "Un partage a été supprimé.",
+      "inviteDeleted": "Une invitation a été supprimée.",
+      "keypairDeleted": "Votre paire de clés a été supprimée.",
+      "passkeyDeleted": "Un passkey a été supprimé.",
+      "generic": "Activité système : {action}"
+    }
+  },
+  "marketing": {
+    "hero": {
+      "signinLink": "Se connecter",
+      "eyebrow": "Zéro-Connaissance · Héritage numérique",
+      "headline1": "Préserver.",
+      "headline2": "Connecter.",
+      "headline3": "Transmettre.",
+      "lede": "Un coffre pour les accès en ligne qui ne voit jamais vos mots de passe — et qui atteint exactement les personnes à qui vous souhaitez un jour confier la clé.",
+      "ctaCreate": "Créer un compte",
+      "ctaSignin": "Déjà connecté ? Ouvrir le coffre",
+      "footerAriaLabel": "Mentions légales",
+      "footerCopy": "© NC AGENTIC GmbH",
+      "footerImpressum": "Mentions légales",
+      "footerDatenschutz": "Politique de confidentialité",
+      "footerCopyright": "Copyright"
+    },
+    "trustStrip": {
+      "ariaLabel": "Signaux de confiance",
+      "euDataProtection": "Protection des données UE",
+      "hostedInGermany": "Hébergé en Allemagne",
+      "zeroKnowledge": "Zéro-Connaissance par conception"
+    },
+    "links": {
+      "ariaLabel": "Code source et contact",
+      "sourceLabel": "Open Source",
+      "sourceMeta": "Code source sur GitHub",
+      "profileLabel": "Gerald Fehringer",
+      "profileMeta": "Profil sur LinkedIn",
+      "donateLabel": "Faire un don",
+      "donateMeta": "Soutenir l'hébergement",
+      "donateTip": "Vous souhaitez maintenir la plateforme en vie ? N'hésitez pas à faire un don pour l'hébergement sécurisé sur Hetzner."
+    }
+  },
+  "legal": {
+    "shell": {
+      "backAriaLabel": "Retour à la page d'accueil",
+      "backLabel": "Retour"
+    },
+    "cookieBanner": {
+      "title": "Cookies & Confidentialité",
+      "text": "NachKlang utilise uniquement des cookies techniquement nécessaires pour l'authentification et la gestion des sessions. Pas de tracking, pas de publicité. En savoir plus dans notre <privacyLink>Politique de confidentialité</privacyLink>.",
+      "btnEssential": "Essentiels uniquement",
+      "btnAcceptAll": "Tout accepter"
+    },
+    "info": {
+      "labelEmail": "E-mail",
+      "labelManagingDirector": "Directeur général",
+      "labelRegisterCourt": "Tribunal d'immatriculation",
+      "labelCommercialRegisterNumber": "Numéro de registre du commerce",
+      "labelResponsible": "Responsable du contenu selon § 18 al. 2 MStV"
+    },
+    "impressum": {
+      "eyebrow": "Légal",
+      "title": "Mentions légales",
+      "intro": "Informations conformément au § 5 de la loi sur les médias électroniques (TMG) et au § 18 al. 2 du Traité interstate sur les médias (MStV).",
+      "sectionProviderTitle": "Prestataire",
+      "sectionContactTitle": "Contact",
+      "sectionManagingDirectorTitle": "Directeur général",
+      "sectionRegisterTitle": "Inscription au registre",
+      "sectionResponsibleTitle": "Responsable du contenu selon § 18 al. 2 MStV",
+      "sectionDisputeTitle": "Règlement des litiges",
+      "sectionDisputeBody": "La Commission européenne fournit une plateforme de règlement des litiges en ligne : <odrLink>ec.europa.eu/consumers/odr</odrLink>. Nous ne sommes ni prêts ni obligés de participer à des procédures de règlement des litiges devant un organisme d'arbitrage des consommateurs.",
+      "sectionLiabilityContentTitle": "Responsabilité pour le contenu",
+      "sectionLiabilityContentBody": "En tant que prestataire de services, nous sommes responsables de notre propre contenu sur ces pages conformément au § 7 al. 1 TMG. Toutefois, conformément aux §§ 8 à 10 TMG, nous ne sommes pas tenus de surveiller les informations de tiers transmises ou stockées ni de rechercher des circonstances indiquant une activité illégale.",
+      "sectionLiabilityLinksTitle": "Responsabilité pour les liens",
+      "sectionLiabilityLinksBody": "Notre site contient des liens vers des sites tiers externes sur lesquels nous n'avons aucun contrôle. Le fournisseur ou l'exploitant respectif des pages liées est toujours responsable de leur contenu."
+    },
+    "datenschutz": {
+      "eyebrow": "Légal",
+      "title": "Politique de confidentialité",
+      "introTemplate": "En vigueur depuis : {date}. Cette politique vous informe conformément à l'Art. 13 RGPD des données personnelles que nous traitons lors de l'utilisation de {product}, dans quel but et sur quelle base juridique.",
+      "s1Title": "1. Responsable du traitement",
+      "s1Body": "Le responsable du traitement au sens du RGPD est :",
+      "s2Title": "2. Principe zéro-connaissance",
+      "s2Body": "{product} est conçu comme un coffre à connaissance nulle (zero‑knowledge). Le contenu de votre coffre (identifiants, notes, métadonnées sur des services en ligne) est chiffré et déchiffré exclusivement dans votre navigateur. Sur nos serveurs, ce contenu n'existe que sous forme chiffrée (AES‑256‑GCM ; les entrées plus anciennes peuvent être chiffrées avec XChaCha20‑Poly1305 et sont migrées automatiquement). La clé ne quitte jamais votre appareil — pas même dans la mémoire de nos serveurs. Nous ne pouvons techniquement ni consulter, ni récupérer, ni déchiffrer le contenu de votre coffre.",
+      "s3Title": "3. Données que nous traitons",
+      "s31Title": "3.1 Données de compte",
+      "s31Body": "Lors de l'inscription, nous traitons votre nom et votre adresse e‑mail. La connexion est sans mot de passe, par clé d'accès (passkey, WebAuthn). Pour vérifier votre identité lors de l'inscription et comme connexion de secours, nous envoyons des codes à usage unique (OTP) par e‑mail. Nous ne stockons aucun mot de passe. Base légale : art. 6, §1, b) du RGPD (exécution d'un contrat).",
+      "s32Title": "3.2 Connexion par clé d'accès (WebAuthn)",
+      "s32Body": "Pour la connexion sans mot de passe, nous stockons les données d'authentification de vos clés d'accès (identifiant de la clé et clé publique). La clé privée reste uniquement sur votre appareil et ne nous est jamais transmise. Base légale : art. 6, §1, f) du RGPD (intérêt légitime à la sécurité du compte).",
+      "s33Title": "3.3 Données du coffre",
+      "s33Body": "Tout le contenu du coffre est stocké exclusivement sous forme chiffrée. Côté serveur, seuls le texte chiffré, le nonce et les métadonnées liées (ID du coffre, ID de l'élément, compteur de révisions) sont stockés. Base juridique : Art. 6(1)(b) RGPD.",
+      "s34Title": "3.4 Journaux serveur",
+      "s34Body": "Lors de l'accès à l'application, notre hébergeur traite les données techniquement nécessaires (adresse IP, date et heure, URL demandée, user agent). Ces données sont conservées pour une durée maximale de 14 jours pour prévenir les abus. Base juridique : Art. 6(1)(f) RGPD.",
+      "s35Title": "3.5 Protection contre les bots (Cloudflare Turnstile)",
+      "s35Body": "Pour prévenir les attaques automatisées et les inscriptions en masse, nous utilisons Cloudflare Turnstile lors de l'inscription. Votre adresse IP et les informations techniques du navigateur sont transmises à Cloudflare et traitées pour vérifier si la demande provient d'un humain. Le prestataire est Cloudflare, Inc. (USA) ; un accord de traitement des données avec des clauses contractuelles types est en place. Turnstile ne dépose pas de cookies de suivi. Base juridique : Art. 6(1)(f) RGPD (intérêt légitime à prévenir les abus).",
+      "s4Title": "4. Cookies",
+      "s4Body": "{product} n'utilise que des cookies techniquement nécessaires à l'authentification et à la gestion des sessions. Aucun cookie de suivi, d'analyse ou publicitaire n'est déposé. Base juridique : § 25 al. 2 n° 2 TTDSG.",
+      "s5Title": "5. Hébergement",
+      "s5Body": "Nous hébergeons {product} chez {provider}. Un accord de traitement des données conformément à l'Art. 28 RGPD est en place. Le traitement s'effectue exclusivement sur des serveurs en Allemagne.",
+      "s6Title": "6. Envoi d'e-mails",
+      "s6Body": "Les e-mails transactionnels (vérification, notifications de sécurité) sont envoyés via {mailService}. Un accord de traitement des données est en place. L'adresse du destinataire et le statut de livraison sont conservés pour une durée maximale de 30 jours.",
+      "s7Title": "7. Vos droits",
+      "s7Intro": "Vous avez à tout moment le droit à :",
+      "s7Right1": "l'accès à vos données stockées chez nous (Art. 15 RGPD),",
+      "s7Right2": "la rectification des données inexactes (Art. 16 RGPD),",
+      "s7Right3": "l'effacement de vos données (Art. 17 RGPD),",
+      "s7Right4": "la limitation du traitement (Art. 18 RGPD),",
+      "s7Right5": "la portabilité des données (Art. 20 RGPD),",
+      "s7Right6": "l'opposition au traitement (Art. 21 RGPD).",
+      "s7ContactPrefix": "Pour exercer ces droits, un message informel à notre contact pour la protection des données est suffisant :",
+      "s8Title": "8. Droit de réclamation",
+      "s8Body": "Vous avez le droit de déposer une plainte auprès d'une autorité de contrôle de la protection des données. L'autorité compétente pour nous est le Commissaire de Hambourg à la protection des données et à la liberté d'information, Ludwig-Erhard-Strasse 22, 20459 Hamburg.",
+      "s9Title": "9. Sécurité des données",
+      "s9Body": "Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données contre les manipulations accidentelles ou intentionnelles, la perte, la destruction ou l'accès non autorisé. Celles-ci comprennent le chiffrement TLS, les bases de données chiffrées, des audits de sécurité réguliers et le modèle zéro-connaissance.",
+      "s10Title": "10. Modifications de cette politique",
+      "s10Body": "Nous nous réservons le droit de mettre à jour cette politique de confidentialité si des raisons légales ou techniques l'exigent. Nous annoncerons les modifications importantes par e-mail."
+    },
+    "copyright": {
+      "eyebrow": "Légal",
+      "title": "Copyright & Marques",
+      "introTemplate": "© {year} {company}. Tous droits réservés.",
+      "s1Title": "Droit d'auteur",
+      "s1Body": "Le contenu, les œuvres et les designs publiés sur les pages de {product} — notamment les textes, graphiques, marques verbales, logos et le code source de l'application — sont soumis au droit d'auteur allemand et aux conventions internationales sur le droit d'auteur. Toute reproduction, modification, distribution ou autre utilisation au-delà des limites du droit d'auteur nécessite le consentement écrit préalable de {company}.",
+      "s2Title": "Marques",
+      "s2Body": "« NachKlang » et la marque verbale-figurative associée sont des marques de {company}. L'utilisation sans autorisation expresse — notamment à des fins commerciales ou d'une manière susceptible de créer une confusion — est interdite. Les références aux marques de tiers servent uniquement à des fins d'identification et restent la propriété de leurs propriétaires respectifs.",
+      "s3Title": "Mentions de licences logicielles",
+      "s3Body": "{product} utilise des composants open source sous leurs licences respectives (notamment MIT, Apache 2.0, ISC). Une liste des bibliothèques utilisées et leurs textes de licence est disponible sur demande.",
+      "s4Title": "Crédits des images",
+      "s4Body": "Toutes les marques verbales, icônes et illustrations ont été soit créées pour le compte de {company}, soit issues de sources libres de droits avec une licence autorisant expressément l'utilisation dans {product}.",
+      "s5Title": "Contact pour les demandes de licence",
+      "s5Body": "Veuillez adresser vos demandes concernant la licence, la réutilisation ou les documents de presse à <email/>."
+    }
+  },
+  "email": {
+    "otp": {
+      "subject": "Code NachKlang par e-mail",
+      "intro": "Votre code NachKlang par e-mail est :",
+      "logoAlt": "NachKlang",
+      "expiry": "Le code est valable 10 minutes. Si vous ne l'avez pas demandé, ignorez cet e‑mail.",
+      "footer": "Ce message a été envoyé automatiquement par NachKlang. Merci de ne pas y répondre."
+    },
+    "invite": {
+      "subject": "{owner} souhaite vous donner accès à un héritage numérique",
+      "logoAlt": "NachKlang",
+      "heading": "Vous avez été invité comme personne de confiance",
+      "intro": "{owner} souhaite vous donner un accès en lecture à son héritage numérique dans NachKlang. Tout reste chiffré de bout en bout — vous n'obtenez l'accès qu'après une étape de confirmation commune.",
+      "cta": "Accepter l'invitation",
+      "expiry": "Ce lien est valable {days} jours. Si vous n'attendiez pas cette invitation, vous pouvez ignorer cet e‑mail.",
+      "footer": "Ce message a été envoyé automatiquement par NachKlang. Merci de ne pas y répondre."
+    },
+    "offboarding": {
+      "subject": "{owner} a supprimé son compte NachKlang — votre accès a pris fin",
+      "intro": "{owner} a définitivement supprimé son compte NachKlang.",
+      "body": "Votre accès en lecture au patrimoine numérique partagé a donc pris fin. Toutes les données associées ont été supprimées de manière irréversible.",
+      "footer": "Ce message a été envoyé automatiquement par NachKlang. Merci de ne pas y répondre."
+    },
+    "errors": {
+      "sendMailFailed": "Échec de l'envoi de l'e-mail.",
+      "tokenFetchFailed": "Impossible de récupérer le jeton d'authentification.",
+      "tokenMissing": "Aucun jeton d'accès inclus dans la réponse du serveur."
+    }
+  },
+  "trustee": {
+    "owner": {
+      "heading": "Personnes de confiance",
+      "lead": "Donnez à une personne de confiance un accès en lecture à votre héritage numérique. L'accès est chiffré de bout en bout et ne devient actif qu'après une étape de confirmation commune.",
+      "emailLabel": "E-mail de la personne de confiance",
+      "nameLabel": "Libellé (par ex. « Ma sœur »)",
+      "submit": "Inviter",
+      "submitBusy": "Envoi de l'invitation…",
+      "invitedEmailed": "Invitation envoyée à {email}.",
+      "invitedNoMail": "Invitation créée. L'envoi de l'e-mail a échoué — partagez le lien manuellement.",
+      "copyLink": "Copier le lien",
+      "copied": "Copié",
+      "listHeading": "Personnes de confiance actuelles",
+      "empty": "Aucune personne de confiance invitée pour l'instant.",
+      "fingerprintLabel": "Code de confirmation",
+      "fingerprintHint": "Comparez ce code avec votre personne de confiance en personne ou par téléphone avant d'accorder l'accès.",
+      "statusPendingVerify": "En attente de confirmation",
+      "statusActive": "Actif",
+      "statusRevoked": "Révoqué",
+      "seal": "Confirmer et accorder",
+      "sealBusy": "Octroi en cours…",
+      "revoke": "Révoquer l'accès",
+      "revokeBusy": "Révocation…",
+      "purge": "Supprimer définitivement",
+      "purgeBusy": "Suppression…",
+      "createdAt": "Invité le {date}",
+      "lastAccess": "Dernier accès le {date}",
+      "neverAccessed": "Pas encore consulté",
+      "accessCount": "Consulté {count}×",
+      "showLog": "Afficher l'historique d'accès",
+      "hideLog": "Masquer l'historique",
+      "logEmpty": "Aucun accès pour l'instant.",
+      "error": "Échec de l'action. Veuillez réessayer."
+    },
+    "accept": {
+      "eyebrow": "Invitation",
+      "heading": "Accès en tant que personne de confiance",
+      "lead": "{owner} souhaite vous donner un accès en lecture à son héritage numérique.",
+      "loading": "Chargement de l'invitation…",
+      "invalid": "Cette invitation est invalide ou est introuvable.",
+      "notAcceptable": "Cette invitation a expiré ou a déjà été utilisée.",
+      "acceptCta": "Accepter l'invitation",
+      "acceptBusy": "Confirmation…",
+      "successHeading": "Presque terminé",
+      "successLead": "Lisez ce code de confirmation à voix haute à {owner} afin de vérifier votre identité. Dès que {owner} confirme, vous obtenez l'accès.",
+      "fingerprintLabel": "Votre code de confirmation",
+      "error": "Échec de l'acceptation. Veuillez réessayer.",
+      "authPrompt": "Pour accepter cette invitation, vous avez besoin d'un compte NachKlang avec une passkey (par ex. Touch ID, une clé de sécurité ou une passkey de téléphone).",
+      "createAccount": "Créer un compte",
+      "signIn": "Se connecter",
+      "finishSetup": "Terminer la configuration",
+      "registerAndAccept": "Créer une passkey et accepter",
+      "waitingHeading": "Presque terminé",
+      "waitingLead": "Montrez ce code de confirmation à {owner}. Dès que {owner} accorde l'accès, le coffre apparaît dans « Partagé avec moi ».",
+      "toShared": "Aller à « Partagé avec moi »",
+      "reopenNote": "Ensuite, ouvrez à nouveau le lien d'invitation depuis votre e-mail pour accepter.",
+      "backToVault": "Aller à mon coffre"
+    },
+    "shared": {
+      "listEyebrow": "Partagé",
+      "listHeading": "Partagé avec moi",
+      "listLead": "Ces coffres vous ont été partagés en tant que personne de confiance.",
+      "empty": "Aucun coffre ne vous est partagé pour l'instant.",
+      "ownerLabel": "Partagé par {owner}",
+      "open": "Ouvrir",
+      "viewEyebrow": "Coffre partagé",
+      "viewHeading": "Coffre partagé",
+      "ownerBadge": "Coffre de {owner}",
+      "ownerUpdated": "Dernière mise à jour par le titulaire : {date}",
+      "readOnly": "Lecture seule",
+      "unlockLead": "Déverrouillez avec votre passkey pour voir les entrées partagées.",
+      "unlock": "Déverrouiller avec le passkey",
+      "unlockBusy": "Déverrouillage…",
+      "forbidden": "Vous n'avez pas d'accès actif à ce coffre.",
+      "error": "Impossible de charger. Veuillez réessayer.",
+      "entriesEmpty": "Ce coffre ne contient aucune entrée.",
+      "fieldLogin": "Connexion",
+      "fieldStatus": "Statut",
+      "handlingStatus": "Votre statut de traitement",
+      "handlingStatusHint": "Votre annotation uniquement — l'entrée du titulaire reste inchangée.",
+      "handlingStatusUnset": "Pas encore traité",
+      "fieldHint": "Indications",
+      "fieldNotes": "Notes",
+      "fieldEmpty": "—",
+      "back": "← Retour à l'aperçu"
+    }
+  },
+  "account": {
+    "settings": {
+      "eyebrow": "Compte",
+      "heading": "Paramètres du compte",
+      "lead": "Gérez votre compte.",
+      "backLink": "← Retour à l'aperçu"
+    }
+  },
+  "auth": {
+    "signin": {
+      "eyebrow": "Se connecter",
+      "title": "Bon retour",
+      "subtitle": "Connectez-vous avec votre clé d'accès.",
+      "createAccountCta": "Pas encore de compte ? Créer maintenant",
+      "submitBusy": "Connexion en cours…",
+      "submit": "Se connecter avec une clé d'accès",
+      "errorGeneric": "Échec de la connexion avec la clé d'accès.",
+      "errorWrongPasskey": "Mauvais passkey. Veuillez utiliser le passkey ou la clé de sécurité configurés pour ce compte (si vous avez plusieurs clés Windows Hello / appareil, choisissez la bonne) — ou connectez-vous avec le code e-mail ci-dessous.",
+      "errorVaultMaterial": "Matériel du coffre inaccessible.",
+      "emailFallbackToggle": "Pas de clé d'accès ? Se connecter avec un code e-mail"
+    },
+    "shell": {
+      "logoAriaLabel": "NachKlang Accueil",
+      "footerImpressum": "Mentions légales",
+      "footerDatenschutz": "Politique de confidentialité",
+      "footerCopyright": "Copyright"
+    },
+    "emailOtp": {
+      "nameLabel": "Nom",
+      "emailLabel": "E-mail",
+      "submitDefault": "Demander un code",
+      "errorNameRequired": "Veuillez saisir un nom.",
+      "errorEmailInvalid": "Veuillez saisir une adresse e-mail valide.",
+      "errorCaptchaRequired": "Veuillez compléter la vérification de sécurité.",
+      "errorRequestFailed": "Impossible de demander le code. Veuillez réessayer."
+    },
+    "emailOtpSignup": {
+      "eyebrow": "Inscription",
+      "title": "Créer un compte",
+      "subtitleStep1": "Étape 1 sur 2 : Nous vous enverrons un code par e-mail.",
+      "subtitleStep2": "Étape 2 sur 2 : Saisissez le code reçu par e-mail.",
+      "existingAccountCta": "Déjà un compte ? Se connecter"
+    },
+    "emailOtpSignin": {
+      "submitLabel": "Envoyer le code à mon e-mail"
+    },
+    "otpVerify": {
+      "codeSentNotice": "Nous avons envoyé un code à {email}.",
+      "codeLabel": "Code",
+      "submit": "Confirmer",
+      "errorCodeLength": "Veuillez saisir le code à 6 chiffres.",
+      "errorCodeInvalid": "Code invalide ou expiré. Veuillez réessayer."
+    },
+    "verifyEmailResult": {
+      "eyebrow": "Inscription",
+      "title": "Confirmer l'e-mail",
+      "subtitle": "Étape 2 sur 3",
+      "verifying": "Confirmation du lien...",
+      "successMessage": "Votre e-mail a été confirmé.",
+      "successCta": "Continuer la configuration",
+      "errorMessage": "Lien expiré ou invalide. Veuillez vous inscrire à nouveau."
+    },
+    "turnstile": {
+      "widgetAriaLabel": "Vérification de sécurité"
+    },
+    "signedInBadge": {
+      "lock": "Verrouiller",
+      "signOut": "Se déconnecter"
+    }
+  }
+}

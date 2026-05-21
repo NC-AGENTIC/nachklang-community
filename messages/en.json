@@ -1,0 +1,591 @@
+{
+  "meta": {
+    "revision": "2026.1-f2281447"
+  },
+  "common": {
+    "languageSwitcherAria": "Choose language"
+  },
+  "vault": {
+    "workspace": {
+      "eyebrow": "Zero-Knowledge Vault",
+      "heading": "My Vault",
+      "settingsButton": "Settings",
+      "addEntryButton": "Add new access",
+      "locked": "Vault locked. Redirecting…",
+      "loading": "Loading vault entries…",
+      "empty": "No entries yet. Add your first access.",
+      "staleNotice": "Another browser has updated the vault. The latest version has been loaded. Please save again.",
+      "staleReload": "Reload",
+      "editModeNotice": "Edit mode active. Do not enter password values.",
+      "cancelNotice": "Edit cancelled.",
+      "toastUpdated": "Entry \"{name}\" updated.",
+      "toastAdded": "Entry \"{name}\" added.",
+      "toastSaveFailed": "Could not save entry.",
+      "toastDeleted": "Entry \"{name}\" removed.",
+      "toastDeleteFailed": "Could not remove entry.",
+      "toastUndo": "Undo",
+      "toastStatusChanged": "\"{name}\": status set to \"{status}\".",
+      "toastStatusFailed": "Could not change status.",
+      "errorEntryRemoved": "Entry has already been removed."
+    },
+    "entryForm": {
+      "eyebrowCreate": "Create",
+      "eyebrowEdit": "Edit",
+      "titleCreate": "Add access",
+      "titleEdit": "Edit access",
+      "badge": "No password field",
+      "labelDisplayName": "Provider name",
+      "labelLoginUrl": "Login URL",
+      "labelEmailUsed": "Email used",
+      "labelUsername": "Username",
+      "usernameOptional": "Optional",
+      "labelPasswordHint": "Password location hint",
+      "passwordHintPlaceholder": "Example: In password manager 1Password under the provider name. Unlock via Touch ID on Max's MacBook.",
+      "passwordHintHelp": "Clearly describe <strong_where>where</strong_where> the password is stored so your next of kin can find it easily. Also mention any additional devices required (e.g. smartphone, Touch ID on Mac \"XYZ\", hardware key). <strong_nopassword>Never enter the password itself here.</strong_nopassword> Store passwords exclusively in a professional password manager and only reference it here.",
+      "labelNotes": "Notes",
+      "notesPlaceholder": "Background info, contact, cancellation details...",
+      "labelStatus": "Status",
+      "cancelButton": "Cancel",
+      "saveEditButton": "Save changes",
+      "saveCreateButton": "Save entry"
+    },
+    "entryCard": {
+      "ariaLabel": "{name} vault entry",
+      "ariaActions": "{name} actions",
+      "ariaStatusChange": "Change {name} status",
+      "ariaEdit": "Edit {name}",
+      "ariaDelete": "Delete {name}",
+      "revisionLabel": "Rev. {rev}",
+      "labelLogin": "Login",
+      "labelIdentity": "Identity",
+      "noEmail": "No email",
+      "noUsername": "No username",
+      "labelPasswordHint": "Password hint",
+      "noPasswordHint": "No hint stored",
+      "labelNotes": "Notes",
+      "noNotes": "No notes stored",
+      "labelStatus": "Status",
+      "lastChanged": "Last changed: {date}",
+      "noteAria": "Note for {name}: {note}"
+    },
+    "entriesList": {
+      "eyebrow": "Worklist",
+      "heading": "Vault entries",
+      "searchAriaLabel": "Search vault entries",
+      "searchPlaceholder": "Search",
+      "listAriaLabel": "Vault entries"
+    },
+    "summary": {
+      "ariaLabel": "Vault summary",
+      "labelEntries": "Vault entries",
+      "labelDecrypted": "decrypted locally",
+      "labelActive": "Still active",
+      "allActive": "All accesses active"
+    },
+    "settings": {
+      "eyebrow": "Settings",
+      "heading": "Vault settings",
+      "lead": "Export your entries as a password-protected ZIP file (AES-256) for a secure backup.",
+      "locked": "Vault locked. Redirecting…",
+      "noticeDefault": "Set a password to create the encrypted ZIP.",
+      "noticeReady": "Encrypted export (ZIP) downloaded.",
+      "noticeBlocked": "Please set a password with at least 8 characters.",
+      "backLink": "← Back to vault"
+    },
+    "deleteAccount": {
+      "eyebrow": "Danger zone",
+      "heading": "Permanently delete account",
+      "lead": "This permanently and irreversibly deletes your account and all related data.",
+      "exportFirst": "Please export your entries (above) before deleting your account.",
+      "start": "Delete account…",
+      "legal1": "If you continue, the following is permanently and irreversibly deleted:",
+      "legalVaults": "Your entire vault including all entries.",
+      "legalShares": "All shares — invited trusted people are notified by email.",
+      "legalNoRestore": "There is no recovery. Nothing can be brought back.",
+      "ackLabel": "I understand that this action is final and nothing can be restored.",
+      "cancel": "Cancel",
+      "continue": "Continue",
+      "confirmWord": "DELETE",
+      "confirmLead": "To confirm permanently, please type “{word}”.",
+      "confirmInputLabel": "Type “{word}”",
+      "deleteFinal": "Permanently delete account",
+      "deleting": "Deleting account…",
+      "error": "Deletion failed. Please try again."
+    },
+    "providerCombobox": {
+      "categoryCloud": "Cloud",
+      "categoryCommerce": "Commerce",
+      "categoryCommunication": "Communication",
+      "categoryEducation": "Education",
+      "categoryFinance": "Finance",
+      "categoryHealth": "Health",
+      "categoryIdentity": "Identity",
+      "categoryInsurance": "Insurance",
+      "categoryMedia": "Media",
+      "categoryMobility": "Mobility",
+      "categoryProductivity": "Productivity",
+      "categoryPublic": "Government",
+      "categorySocial": "Social",
+      "categoryTravel": "Travel",
+      "categoryUtilities": "Utilities"
+    },
+    "unlock": {
+      "eyebrow": "Vault",
+      "title": "Unlock",
+      "subtitle": "Confirm with your passkey.",
+      "passkeyBusy": "Unlocking…",
+      "passkeySubmit": "Unlock with passkey",
+      "passkeyErrorGeneric": "Unlocking with passkey failed.",
+      "recoveryToggle": "No passkey? Use recovery code",
+      "recoveryLabel": "Recovery code",
+      "recoverySubmit": "Open vault with recovery code",
+      "recoveryErrorGeneric": "Recovery code invalid.",
+      "recoveryNoMaterial": "No recovery material available."
+    },
+    "managePasskeys": {
+      "heading": "Passkeys",
+      "hint": "Every device you add can unlock your vault. The last passkey cannot be removed.",
+      "unnamed": "Unnamed device",
+      "removeButton": "Remove",
+      "addBusy": "Please confirm…",
+      "addButton": "Add this device",
+      "errorGeneric": "Operation failed.",
+      "loadError": "Vault material unavailable.",
+      "deviceFallback": "This device",
+      "renameButton": "Rename",
+      "renameLabel": "Device name",
+      "renameSave": "Save",
+      "renameCancel": "Cancel"
+    },
+    "idleLock": {
+      "ariaLabel": "Session warning",
+      "message": "Vault locks in {seconds}s.",
+      "stayButton": "Stay signed in"
+    },
+    "errors": {
+      "prfNotSupported": "Passkey does not support PRF. Please use a PRF-capable device.",
+      "prfSigninFailed": "PRF sign-in failed.",
+      "prfUnlockFailed": "PRF unlock failed.",
+      "prfKeyNotFound": "No key stored for this passkey.",
+      "recoveryCodeInvalidChar": "Invalid character in recovery code.",
+      "recoveryCodeLength": "Recovery code has incorrect length.",
+      "generic": "Operation failed."
+    },
+    "lifecycle": {
+      "aktiv": "Active",
+      "stillgelegt": "Deprecated",
+      "anbieter-informiert": "Provider informed",
+      "geloescht": "Deleted"
+    }
+  },
+  "onboarding": {
+    "wizard": {
+      "stepLabels": [
+        "Passkey",
+        "Recovery",
+        "Confirmation"
+      ],
+      "step1Eyebrow": "STEP 1 OF 3 · PASSKEY",
+      "step1Title": "Set up vault",
+      "step1Subtitle": "Your passkey secures this vault. The key never leaves your browser.",
+      "step2Eyebrow": "STEP 2 OF 3 · RECOVERY CODE",
+      "step2Title": "Note recovery code",
+      "step2Subtitle": "Your only fallback. NachKlang cannot resend it.",
+      "step3Eyebrow": "STEP 3 OF 3 · CONFIRMATION",
+      "step3Title": "Confirm recovery code",
+      "step3Subtitle": "Enter the recovery code again to confirm.",
+      "backLabel": "← Back to code",
+      "openVaultButton": "Open vault",
+      "passkeyErrorGeneric": "Could not create passkey. Please use a PRF-capable device."
+    },
+    "shell": {
+      "logoAriaLabel": "NachKlang Home",
+      "stepIndicatorAriaLabel": "Step {step} of {total}",
+      "defaultBackLabel": "Back",
+      "footerImpressum": "Legal Notice",
+      "footerDatenschutz": "Privacy Policy",
+      "footerCopyright": "Copyright"
+    },
+    "passkey": {
+      "hintCapable": "Your vault will be secured with a passkey on this device. Nothing leaves your browser unencrypted.",
+      "hintIncapable": "This device may not support PRF-capable passkeys. Please use a current device with a platform passkey.",
+      "createBusy": "Creating passkey…",
+      "createButton": "Create passkey"
+    },
+    "recovery": {
+      "continueButton": "Continue →",
+      "printTitle": "NachKlang Recovery Kit",
+      "printLabelEmail": "Email",
+      "printLabelVaultId": "Vault ID",
+      "printLabelCreatedAt": "Created on",
+      "printLabelCode": "Recovery code",
+      "printNote": "Keep this code in a safe place. It is your only way to restore your vault if your passkey is no longer available. NachKlang cannot resend the code.",
+      "printButton": "Print"
+    },
+    "recoveryPrint": {
+      "heading": "NachKlang Recovery Kit",
+      "labelEmail": "Email",
+      "labelVaultId": "Vault ID",
+      "labelCreatedAt": "Created on",
+      "labelCode": "Recovery code",
+      "note": "Keep this code in a safe place. It is your only way to restore your vault if you forget the passphrase. NachKlang cannot resend the code."
+    },
+    "confirmation": {
+      "codeLabel": "Recovery code",
+      "mismatchError": "Code does not match.",
+      "consentLabel": "I have stored the code safely and understand it is my only fallback.",
+      "backButton": "← Back to code",
+      "defaultSubmitLabel": "Create vault"
+    }
+  },
+  "chrome": {
+    "app": {
+      "desktopRailAriaLabel": "Primary app areas",
+      "mobileNavAriaLabel": "Primary app areas",
+      "navVault": "Vault",
+      "navSettings": "Settings",
+      "navShared": "Shared with me",
+      "navAudit": "Activity log"
+    },
+    "skipToWorkspace": "Skip to vault"
+  },
+  "audit": {
+    "eyebrow": "Transparency",
+    "heading": "Activity log",
+    "lead": "A traceable overview of all activity on your account and vault — including deletions by system administration or automation.",
+    "empty": "There are no log entries yet.",
+    "actorSystem": "System",
+    "actorUser": "Account",
+    "someoneTrusted": "A trusted person",
+    "anEntry": "an entry",
+    "event": {
+      "shareInvited": "You invited a trusted person.",
+      "shareAccepted": "{name} accepted your invitation.",
+      "shareAcceptedSelf": "You accepted an invitation.",
+      "shareSealed": "You granted a trusted person read access.",
+      "shareRevoked": "You revoked a trusted person's access.",
+      "sharePurged": "You permanently deleted a trusted person.",
+      "vaultRead": "{name} opened your vault.",
+      "statusChanged": "{name} updated the status of “{entry}”.",
+      "statusChangedSelf": "You updated a handling status.",
+      "userDeleted": "Your account was deleted.",
+      "vaultDeleted": "Your vault was deleted.",
+      "itemDeleted": "An entry was deleted from your vault.",
+      "shareDeleted": "A share was removed.",
+      "inviteDeleted": "An invitation was removed.",
+      "keypairDeleted": "Your key pair was deleted.",
+      "passkeyDeleted": "A passkey was removed.",
+      "generic": "System activity: {action}"
+    }
+  },
+  "marketing": {
+    "hero": {
+      "signinLink": "Sign in",
+      "eyebrow": "Zero-Knowledge · Digital Legacy",
+      "headline1": "Preserve.",
+      "headline2": "Connect.",
+      "headline3": "Pass on.",
+      "lede": "A vault for online accounts that never sees your passwords — reaching exactly the people you want to hand the key to one day.",
+      "ctaCreate": "Create account",
+      "ctaSignin": "Already signed in? Open vault",
+      "footerAriaLabel": "Legal",
+      "footerCopy": "© NC AGENTIC GmbH",
+      "footerImpressum": "Legal Notice",
+      "footerDatenschutz": "Privacy Policy",
+      "footerCopyright": "Copyright"
+    },
+    "trustStrip": {
+      "ariaLabel": "Trust signals",
+      "euDataProtection": "EU Data Protection",
+      "hostedInGermany": "Hosted in Germany",
+      "zeroKnowledge": "Zero-Knowledge by design"
+    },
+    "links": {
+      "ariaLabel": "Source code and contact",
+      "sourceLabel": "Open Source",
+      "sourceMeta": "Source code on GitHub",
+      "profileLabel": "Gerald Fehringer",
+      "profileMeta": "Profile on LinkedIn",
+      "donateLabel": "Donate",
+      "donateMeta": "Support hosting",
+      "donateTip": "Want to keep the platform alive? Feel free to donate towards secure hosting on Hetzner."
+    }
+  },
+  "legal": {
+    "shell": {
+      "backAriaLabel": "Back to home page",
+      "backLabel": "Back"
+    },
+    "cookieBanner": {
+      "title": "Cookies & Privacy",
+      "text": "NachKlang uses only technically necessary cookies for authentication and session management. No tracking, no advertising. Learn more in our <privacyLink>Privacy Policy</privacyLink>.",
+      "btnEssential": "Essential only",
+      "btnAcceptAll": "Accept all"
+    },
+    "info": {
+      "labelEmail": "Email",
+      "labelManagingDirector": "Managing Director",
+      "labelRegisterCourt": "Register court",
+      "labelCommercialRegisterNumber": "Commercial register number",
+      "labelResponsible": "Responsible for content under § 18 para. 2 MStV"
+    },
+    "impressum": {
+      "eyebrow": "Legal",
+      "title": "Legal Notice",
+      "intro": "Information pursuant to § 5 Telemedia Act (TMG) and § 18 para. 2 Interstate Media Treaty (MStV).",
+      "sectionProviderTitle": "Provider",
+      "sectionContactTitle": "Contact",
+      "sectionManagingDirectorTitle": "Managing Director",
+      "sectionRegisterTitle": "Register entry",
+      "sectionResponsibleTitle": "Responsible for content under § 18 para. 2 MStV",
+      "sectionDisputeTitle": "Dispute resolution",
+      "sectionDisputeBody": "The European Commission provides a platform for online dispute resolution: <odrLink>ec.europa.eu/consumers/odr</odrLink>. We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+      "sectionLiabilityContentTitle": "Liability for content",
+      "sectionLiabilityContentBody": "As a service provider, we are responsible for our own content on these pages in accordance with § 7 para. 1 TMG. However, pursuant to §§ 8 to 10 TMG, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances indicating illegal activity.",
+      "sectionLiabilityLinksTitle": "Liability for links",
+      "sectionLiabilityLinksBody": "Our website contains links to external third-party websites over whose content we have no control. The respective provider or operator of the linked pages is always responsible for their content."
+    },
+    "datenschutz": {
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "introTemplate": "Effective: {date}. This policy informs you pursuant to Art. 13 GDPR about the personal data we process when you use {product}, for what purpose, and on what legal basis.",
+      "s1Title": "1. Controller",
+      "s1Body": "The controller within the meaning of the GDPR is:",
+      "s2Title": "2. Zero-Knowledge Principle",
+      "s2Body": "{product} is built as a zero‑knowledge vault. Your vault contents (credentials, notes, metadata about online services) are encrypted and decrypted exclusively in your browser. On our servers these contents exist only in encrypted form (AES‑256‑GCM; older entries may be encrypted with XChaCha20‑Poly1305 and are migrated automatically). The key never leaves your device — not even in our servers' memory. We technically cannot view, recover, or decrypt the contents of your vault.",
+      "s3Title": "3. Data we process",
+      "s31Title": "3.1 Account data",
+      "s31Body": "When you register, we process your name and email address. Sign‑in is passwordless via passkey (WebAuthn). To verify your identity at registration and as a fallback sign‑in, we send one‑time codes (OTP) by email. We do not store any passwords. Legal basis: Art. 6(1)(b) GDPR (performance of a contract).",
+      "s32Title": "3.2 Passkey sign‑in (WebAuthn)",
+      "s32Body": "For passwordless sign‑in we store your passkeys' credentials (credential ID and public key). The private key remains solely on your device and is never transmitted to us. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in account security).",
+      "s33Title": "3.3 Vault data",
+      "s33Body": "All vault contents are stored exclusively in encrypted form. Server-side we store only ciphertext, nonce, and bound metadata (vault ID, item ID, revision counter). Legal basis: Art. 6(1)(b) GDPR.",
+      "s34Title": "3.4 Server logs",
+      "s34Body": "When accessing the application, our hosting provider processes technically necessary data (IP address, date and time, requested URL, user agent). This data is stored for a maximum of 14 days to prevent abuse. Legal basis: Art. 6(1)(f) GDPR.",
+      "s35Title": "3.5 Bot protection (Cloudflare Turnstile)",
+      "s35Body": "To prevent automated attacks and mass registrations, we use Cloudflare Turnstile during registration. Your IP address and technical browser information are transmitted to and processed by Cloudflare to verify whether the request comes from a human. The provider is Cloudflare, Inc. (USA); a data processing agreement with standard contractual clauses is in place. Turnstile does not set tracking cookies. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in preventing abuse).",
+      "s4Title": "4. Cookies",
+      "s4Body": "{product} uses only technically necessary cookies required for authentication and session handling. No tracking, analytics, or advertising cookies are set. Legal basis: § 25 para. 2 no. 2 TTDSG.",
+      "s5Title": "5. Hosting",
+      "s5Body": "We host {product} with {provider}. A data processing agreement pursuant to Art. 28 GDPR is in place. Processing takes place exclusively on servers in Germany.",
+      "s6Title": "6. Email delivery",
+      "s6Body": "Transactional emails (verification, security notifications) are sent via {mailService}. A data processing agreement is in place. Recipient address and delivery status are stored for a maximum of 30 days.",
+      "s7Title": "7. Your rights",
+      "s7Intro": "You have the right at any time to:",
+      "s7Right1": "access your data stored with us (Art. 15 GDPR),",
+      "s7Right2": "rectification of inaccurate data (Art. 16 GDPR),",
+      "s7Right3": "erasure of your data (Art. 17 GDPR),",
+      "s7Right4": "restriction of processing (Art. 18 GDPR),",
+      "s7Right5": "data portability (Art. 20 GDPR),",
+      "s7Right6": "objection to processing (Art. 21 GDPR).",
+      "s7ContactPrefix": "To exercise these rights, an informal message to our data protection contact is sufficient:",
+      "s8Title": "8. Right to lodge a complaint",
+      "s8Body": "You have the right to lodge a complaint with a data protection supervisory authority. The authority responsible for us is the Hamburg Commissioner for Data Protection and Freedom of Information, Ludwig-Erhard-Strasse 22, 20459 Hamburg.",
+      "s9Title": "9. Data security",
+      "s9Body": "We implement technical and organisational measures to protect your data against accidental or intentional manipulation, loss, destruction, or unauthorised access. These include TLS transport encryption, encrypted databases, regular security audits, and the zero-knowledge model.",
+      "s10Title": "10. Changes to this policy",
+      "s10Body": "We reserve the right to update this privacy policy if required for legal or technical reasons. We will announce material changes by email."
+    },
+    "copyright": {
+      "eyebrow": "Legal",
+      "title": "Copyright & Trademarks",
+      "introTemplate": "© {year} {company}. All rights reserved.",
+      "s1Title": "Copyright",
+      "s1Body": "The content, works, and designs published on the pages of {product} — in particular texts, graphics, word marks, logos, and the application source code — are subject to German copyright law and international copyright conventions. Any reproduction, editing, distribution, or other exploitation beyond the limits of copyright law requires the prior written consent of {company}.",
+      "s2Title": "Trademarks",
+      "s2Body": "\"NachKlang\" and the associated word-figurative mark are trademarks of {company}. Use without express permission — especially for commercial purposes or in a manner likely to cause confusion — is not permitted. References to third-party trademarks serve identification purposes only and remain the property of their respective owners.",
+      "s3Title": "Software licence notices",
+      "s3Body": "{product} uses open-source components licensed under their respective licences (including MIT, Apache 2.0, ISC). A list of the libraries used and their licence texts is available on request.",
+      "s4Title": "Image credits",
+      "s4Body": "All word marks, icons, and illustrations were either created on behalf of {company} or sourced from royalty-free sources under a licence that expressly permits use in {product}.",
+      "s5Title": "Contact for licence enquiries",
+      "s5Body": "Please direct enquiries regarding licensing, reuse, or press material to <email/>."
+    }
+  },
+  "email": {
+    "otp": {
+      "subject": "NachKlang Email Code",
+      "intro": "Your NachKlang email code is:",
+      "logoAlt": "NachKlang",
+      "expiry": "The code is valid for 10 minutes. If you didn't request it, you can ignore this email.",
+      "footer": "This message was sent automatically by NachKlang. Please do not reply."
+    },
+    "invite": {
+      "subject": "{owner} wants to give you access to a digital legacy",
+      "logoAlt": "NachKlang",
+      "heading": "You have been invited as a trustee",
+      "intro": "{owner} would like to give you read access to their digital legacy in NachKlang. Everything stays end-to-end encrypted — you only gain access after a shared confirmation step.",
+      "cta": "Accept invitation",
+      "expiry": "This link is valid for {days} days. If you weren't expecting this invitation, you can ignore this email.",
+      "footer": "This message was sent automatically by NachKlang. Please do not reply."
+    },
+    "offboarding": {
+      "subject": "{owner} deleted their NachKlang account — your access has ended",
+      "intro": "{owner} has permanently deleted their NachKlang account.",
+      "body": "Your read access to the shared digital legacy has therefore ended. All related data has been irreversibly removed.",
+      "footer": "This message was sent automatically by NachKlang. Please do not reply."
+    },
+    "errors": {
+      "sendMailFailed": "Email sending failed.",
+      "tokenFetchFailed": "Could not retrieve authentication token.",
+      "tokenMissing": "No access token included in the server response."
+    }
+  },
+  "trustee": {
+    "owner": {
+      "heading": "Trustees",
+      "lead": "Give a trusted person read access to your digital legacy. Access is end-to-end encrypted and only becomes active after a shared confirmation step.",
+      "emailLabel": "Trustee's email",
+      "nameLabel": "Label (e.g. \"My sister\")",
+      "submit": "Invite",
+      "submitBusy": "Sending invitation…",
+      "invitedEmailed": "Invitation sent to {email}.",
+      "invitedNoMail": "Invitation created. Sending the email failed — share the link manually.",
+      "copyLink": "Copy link",
+      "copied": "Copied",
+      "listHeading": "Current trustees",
+      "empty": "No trustees invited yet.",
+      "fingerprintLabel": "Confirmation code",
+      "fingerprintHint": "Compare this code with your trustee in person or by phone before you grant access.",
+      "statusPendingVerify": "Awaiting confirmation",
+      "statusActive": "Active",
+      "statusRevoked": "Revoked",
+      "seal": "Confirm & grant",
+      "sealBusy": "Granting…",
+      "revoke": "Revoke access",
+      "revokeBusy": "Revoking…",
+      "purge": "Delete permanently",
+      "purgeBusy": "Deleting…",
+      "createdAt": "Invited on {date}",
+      "lastAccess": "Last accessed on {date}",
+      "neverAccessed": "Not accessed yet",
+      "accessCount": "Accessed {count}×",
+      "showLog": "Show access history",
+      "hideLog": "Hide history",
+      "logEmpty": "No accesses yet.",
+      "error": "Action failed. Please try again."
+    },
+    "accept": {
+      "eyebrow": "Invitation",
+      "heading": "Access as a trustee",
+      "lead": "{owner} would like to give you read access to their digital legacy.",
+      "loading": "Loading invitation…",
+      "invalid": "This invitation is invalid or could not be found.",
+      "notAcceptable": "This invitation has expired or has already been used.",
+      "acceptCta": "Accept invitation",
+      "acceptBusy": "Confirming…",
+      "successHeading": "Almost done",
+      "successLead": "Read this confirmation code aloud to {owner} so your identity can be verified. Once {owner} confirms, you'll get access.",
+      "fingerprintLabel": "Your confirmation code",
+      "error": "Acceptance failed. Please try again.",
+      "authPrompt": "To accept this invitation you need a NachKlang account with a passkey (e.g. Touch ID, a security key, or a phone passkey).",
+      "createAccount": "Create account",
+      "signIn": "Sign in",
+      "finishSetup": "Finish setup",
+      "registerAndAccept": "Create passkey & accept",
+      "waitingHeading": "Almost done",
+      "waitingLead": "Show {owner} this confirmation code. Once {owner} grants access, the vault appears under \"Shared with me\".",
+      "toShared": "Go to \"Shared with me\"",
+      "reopenNote": "Afterwards, open the invitation link from your email again to accept.",
+      "backToVault": "Go to my vault"
+    },
+    "shared": {
+      "listEyebrow": "Shared",
+      "listHeading": "Shared with me",
+      "listLead": "These vaults have been shared with you as a trustee.",
+      "empty": "No vault is currently shared with you.",
+      "ownerLabel": "Shared by {owner}",
+      "open": "Open",
+      "viewEyebrow": "Shared vault",
+      "viewHeading": "Shared vault",
+      "ownerBadge": "{owner}'s vault",
+      "ownerUpdated": "Last updated by the owner: {date}",
+      "readOnly": "Read-only",
+      "unlockLead": "Unlock with your passkey to view the shared entries.",
+      "unlock": "Unlock with passkey",
+      "unlockBusy": "Unlocking…",
+      "forbidden": "You don't have active access to this vault.",
+      "error": "Could not load. Please try again.",
+      "entriesEmpty": "This vault contains no entries.",
+      "fieldLogin": "Login",
+      "fieldStatus": "Status",
+      "handlingStatus": "Your handling status",
+      "handlingStatusHint": "Your note only — the owner's entry stays unchanged.",
+      "handlingStatusUnset": "Not yet handled",
+      "fieldHint": "Hints",
+      "fieldNotes": "Notes",
+      "fieldEmpty": "—",
+      "back": "← Back to overview"
+    }
+  },
+  "account": {
+    "settings": {
+      "eyebrow": "Account",
+      "heading": "Account settings",
+      "lead": "Manage your account.",
+      "backLink": "← Back to overview"
+    }
+  },
+  "auth": {
+    "signin": {
+      "eyebrow": "Sign in",
+      "title": "Welcome back",
+      "subtitle": "Sign in with your passkey.",
+      "createAccountCta": "No account yet? Set one up now",
+      "submitBusy": "Signing in…",
+      "submit": "Sign in with passkey",
+      "errorGeneric": "Sign-in with passkey failed.",
+      "errorWrongPasskey": "Wrong passkey. Please use the passkey or security key you set up for this account (if you have several Windows Hello / device keys, pick the right one) — or sign in with the email code below.",
+      "errorVaultMaterial": "Vault material unavailable.",
+      "emailFallbackToggle": "No passkey? Sign in with email code"
+    },
+    "shell": {
+      "logoAriaLabel": "NachKlang Home",
+      "footerImpressum": "Legal Notice",
+      "footerDatenschutz": "Privacy Policy",
+      "footerCopyright": "Copyright"
+    },
+    "emailOtp": {
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "submitDefault": "Request code",
+      "errorNameRequired": "Please enter a name.",
+      "errorEmailInvalid": "Please enter a valid email address.",
+      "errorCaptchaRequired": "Please complete the security check.",
+      "errorRequestFailed": "Could not request code. Please try again."
+    },
+    "emailOtpSignup": {
+      "eyebrow": "Sign up",
+      "title": "Create account",
+      "subtitleStep1": "Step 1 of 2: We'll send you a code by email.",
+      "subtitleStep2": "Step 2 of 2: Enter the code from your email.",
+      "existingAccountCta": "Already have an account? Sign in"
+    },
+    "emailOtpSignin": {
+      "submitLabel": "Send code to my email"
+    },
+    "otpVerify": {
+      "codeSentNotice": "We sent a code to {email}.",
+      "codeLabel": "Code",
+      "submit": "Confirm",
+      "errorCodeLength": "Please enter the 6-digit code.",
+      "errorCodeInvalid": "Code invalid or expired. Please try again."
+    },
+    "verifyEmailResult": {
+      "eyebrow": "Sign up",
+      "title": "Confirm email",
+      "subtitle": "Step 2 of 3",
+      "verifying": "Confirming link...",
+      "successMessage": "Your email has been confirmed.",
+      "successCta": "Continue to setup",
+      "errorMessage": "Link expired or invalid. Please sign up again."
+    },
+    "turnstile": {
+      "widgetAriaLabel": "Security check"
+    },
+    "signedInBadge": {
+      "lock": "Lock",
+      "signOut": "Sign out"
+    }
+  }
+}

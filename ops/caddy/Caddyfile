@@ -1,0 +1,52 @@
+{
+	email admin@nc-agentic.de
+	admin off
+	order rate_limit before reverse_proxy
+	# Public TCP/80 is firewalled (SSH is VPN-only; only 443/41641/icmp are open). Skip the
+	# now-unreachable HTTP->HTTPS redirect listener. Certificate renewal uses the TLS-ALPN-01
+	# challenge over 443 (see disable_http_challenge below), so port 80 is not required.
+	auto_https disable_redirects
+}
+
+{$CADDY_SITE_ADDRESS::80} {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+		# Cross-origin isolation: COEP on the document + CORP on every proxied
+		# response (incl. _next/static assets the Next middleware does not touch),
+		# so require-corp is satisfied. All app resources are same-origin or
+		# data:/blob:, so nothing is blocked. (SP6b / R4)
+		Cross-Origin-Embedder-Policy "require-corp"
+		Cross-Origin-Resource-Policy "same-origin"
+		-Server
+	}
+
+	# Edge rate limiting (defense-in-depth behind Cloudflare Turnstile and the
+	# Better Auth per-endpoint limits): cap auth/OTP traffic per client IP before
+	# it reaches the app. Caddy terminates TLS directly, so remote_ip is the real
+	# client. 30 requests/min/IP is generous for legitimate sign-in/onboarding.
+	# The event count is env-overridable so e2e (all requests share one IP) can
+	# raise it via CADDY_AUTH_RATE_EVENTS; production leaves it unset → 30.
+	@auth path /api/auth/*
+	rate_limit @auth {
+		zone auth_endpoints {
+			key {http.request.remote_ip}
+			events {$CADDY_AUTH_RATE_EVENTS:30}
+			window 1m
+		}
+	}
+
+	# No inbound TCP/80, so force the TLS-ALPN-01 challenge (over 443) for issuance/renewal
+	# instead of HTTP-01 (which needs port 80). Harmless in local dev (:80 has no TLS).
+	tls {
+		issuer acme {
+			email admin@nc-agentic.de
+			disable_http_challenge
+		}
+	}
+
+	reverse_proxy web:3000
+}

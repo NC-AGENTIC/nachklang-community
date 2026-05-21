@@ -1,0 +1,591 @@
+{
+  "meta": {
+    "revision": "2026.1-f2281447"
+  },
+  "common": {
+    "languageSwitcherAria": "Sprache wählen"
+  },
+  "vault": {
+    "workspace": {
+      "eyebrow": "Zero-Knowledge Vault",
+      "heading": "Mein Tresor",
+      "settingsButton": "Einstellungen",
+      "addEntryButton": "Neuen Zugang erfassen",
+      "locked": "Tresor gesperrt. Weiterleitung…",
+      "loading": "Tresor-Einträge werden geladen…",
+      "empty": "Noch keine Einträge. Legen Sie Ihren ersten Zugang an.",
+      "staleNotice": "Ein anderer Browser hat den Tresor aktualisiert. Die neueste Version wurde geladen. Bitte erneut speichern.",
+      "staleReload": "Neu laden",
+      "editModeNotice": "Bearbeitungsmodus aktiv. Keine Passwortwerte eingeben.",
+      "cancelNotice": "Bearbeitung abgebrochen.",
+      "toastUpdated": "Eintrag „{name}“ aktualisiert.",
+      "toastAdded": "Eintrag „{name}“ hinzugefügt.",
+      "toastSaveFailed": "Eintrag konnte nicht gespeichert werden.",
+      "toastDeleted": "Eintrag „{name}“ entfernt.",
+      "toastDeleteFailed": "Eintrag konnte nicht entfernt werden.",
+      "toastUndo": "Rückgängig",
+      "toastStatusChanged": "„{name}“: Status auf „{status}“ gesetzt.",
+      "toastStatusFailed": "Status konnte nicht geändert werden.",
+      "errorEntryRemoved": "Eintrag wurde bereits entfernt."
+    },
+    "entryForm": {
+      "eyebrowCreate": "Erfassung",
+      "eyebrowEdit": "Bearbeitung",
+      "titleCreate": "Zugang erfassen",
+      "titleEdit": "Zugang bearbeiten",
+      "badge": "Ohne Passwortfeld",
+      "labelDisplayName": "Anbietername",
+      "labelLoginUrl": "Login-URL",
+      "labelEmailUsed": "Genutzte E-Mail",
+      "labelUsername": "Benutzername",
+      "usernameOptional": "Optional",
+      "labelPasswordHint": "Hinweis zum Passwort-Fundort",
+      "passwordHintPlaceholder": "Beispiel: Im Passwort-Manager 1Password unter dem Anbieternamen. Entsperren per Touch ID auf dem MacBook von Max.",
+      "passwordHintHelp": "Beschreiben Sie klar, <strong_where>wo</strong_where> das Passwort liegt, damit Angehörige es später problemlos finden. Nennen Sie auch, ob zusätzliche Geräte nötig sind (z. B. Smartphone, Touch ID auf dem Mac „XYZ”, Hardware-Schlüssel). <strong_nopassword>Geben Sie hier niemals das Passwort selbst ein.</strong_nopassword> Bewahren Sie Passwörter ausschließlich in einer professionellen Passwort-Manager-Lösung auf und verweisen Sie hier nur darauf.",
+      "labelNotes": "Notizen",
+      "notesPlaceholder": "Rahmendaten, Kontaktweg, Kündigungsinfo...",
+      "labelStatus": "Status",
+      "cancelButton": "Abbrechen",
+      "saveEditButton": "Änderung speichern",
+      "saveCreateButton": "Eintrag speichern"
+    },
+    "entryCard": {
+      "ariaLabel": "{name} Vault-Eintrag",
+      "ariaActions": "{name} Aktionen",
+      "ariaStatusChange": "{name} Status ändern",
+      "ariaEdit": "{name} bearbeiten",
+      "ariaDelete": "{name} löschen",
+      "revisionLabel": "Rev. {rev}",
+      "labelLogin": "Login",
+      "labelIdentity": "Identität",
+      "noEmail": "Keine E-Mail",
+      "noUsername": "Kein Benutzername",
+      "labelPasswordHint": "Passwort-Hinweis",
+      "noPasswordHint": "Kein Hinweis hinterlegt",
+      "labelNotes": "Notizen",
+      "noNotes": "Keine Notizen hinterlegt",
+      "labelStatus": "Status",
+      "lastChanged": "Zuletzt geändert: {date}",
+      "noteAria": "Notiz zu {name}: {note}"
+    },
+    "entriesList": {
+      "eyebrow": "Arbeitsliste",
+      "heading": "Vault-Einträge",
+      "searchAriaLabel": "Vault-Einträge durchsuchen",
+      "searchPlaceholder": "Suchen",
+      "listAriaLabel": "Vault-Einträge"
+    },
+    "summary": {
+      "ariaLabel": "Vault Zusammenfassung",
+      "labelEntries": "Vault-Einträge",
+      "labelDecrypted": "lokal entschlüsselt",
+      "labelActive": "Noch aktiv",
+      "allActive": "Alle Zugänge aktiv"
+    },
+    "settings": {
+      "eyebrow": "Einstellungen",
+      "heading": "Vault-Einstellungen",
+      "lead": "Exportieren Sie Ihre Einträge als passwortgeschützte ZIP-Datei (AES-256) für ein sicheres Backup.",
+      "locked": "Tresor gesperrt. Weiterleitung…",
+      "noticeDefault": "Vergeben Sie ein Passwort, um die verschlüsselte ZIP zu erstellen.",
+      "noticeReady": "Verschlüsselter Export (ZIP) wurde heruntergeladen.",
+      "noticeBlocked": "Bitte vergeben Sie ein Passwort mit mindestens 8 Zeichen.",
+      "backLink": "← Zurück zum Tresor"
+    },
+    "deleteAccount": {
+      "eyebrow": "Gefahrenzone",
+      "heading": "Konto endgültig löschen",
+      "lead": "Hiermit löschen Sie Ihr Konto und alle zugehörigen Daten unwiderruflich.",
+      "exportFirst": "Bitte exportieren Sie zuerst Ihre Einträge (oben), bevor Sie Ihr Konto löschen.",
+      "start": "Konto löschen…",
+      "legal1": "Wenn Sie fortfahren, wird Folgendes dauerhaft und unwiderruflich gelöscht:",
+      "legalVaults": "Ihr gesamter Tresor inklusive aller Einträge.",
+      "legalShares": "Alle Freigaben – eingeladene Vertrauenspersonen werden per E-Mail informiert.",
+      "legalNoRestore": "Es gibt keine Wiederherstellung. Nichts kann zurückgeholt werden.",
+      "ackLabel": "Mir ist bewusst, dass dieser Vorgang endgültig ist und nichts wiederhergestellt werden kann.",
+      "cancel": "Abbrechen",
+      "continue": "Weiter",
+      "confirmWord": "LÖSCHEN",
+      "confirmLead": "Zur endgültigen Bestätigung geben Sie bitte „{word}“ ein.",
+      "confirmInputLabel": "Tippen Sie „{word}“",
+      "deleteFinal": "Konto endgültig löschen",
+      "deleting": "Konto wird gelöscht…",
+      "error": "Löschen fehlgeschlagen. Bitte erneut versuchen."
+    },
+    "providerCombobox": {
+      "categoryCloud": "Cloud",
+      "categoryCommerce": "Handel",
+      "categoryCommunication": "Kommunikation",
+      "categoryEducation": "Bildung",
+      "categoryFinance": "Finanzen",
+      "categoryHealth": "Gesundheit",
+      "categoryIdentity": "Identität",
+      "categoryInsurance": "Versicherung",
+      "categoryMedia": "Medien",
+      "categoryMobility": "Mobilität",
+      "categoryProductivity": "Produktivität",
+      "categoryPublic": "Behörden",
+      "categorySocial": "Social",
+      "categoryTravel": "Reisen",
+      "categoryUtilities": "Versorgung"
+    },
+    "unlock": {
+      "eyebrow": "Tresor",
+      "title": "Entsperren",
+      "subtitle": "Bestätigen Sie mit Ihrem Passkey.",
+      "passkeyBusy": "Entsperre…",
+      "passkeySubmit": "Mit Passkey entsperren",
+      "passkeyErrorGeneric": "Entsperren mit Passkey fehlgeschlagen.",
+      "recoveryToggle": "Passkey nicht verfügbar? Recovery-Code verwenden",
+      "recoveryLabel": "Recovery-Code",
+      "recoverySubmit": "Tresor mit Recovery-Code öffnen",
+      "recoveryErrorGeneric": "Recovery-Code ungültig.",
+      "recoveryNoMaterial": "Kein Recovery-Material vorhanden."
+    },
+    "managePasskeys": {
+      "heading": "Passkeys",
+      "hint": "Mit jedem Gerät, das Sie hinzufügen, können Sie Ihren Tresor entsperren. Der letzte Passkey kann nicht entfernt werden.",
+      "unnamed": "Unbenanntes Gerät",
+      "removeButton": "Entfernen",
+      "addBusy": "Bitte bestätigen…",
+      "addButton": "Dieses Gerät hinzufügen",
+      "errorGeneric": "Vorgang fehlgeschlagen.",
+      "loadError": "Tresor-Material nicht abrufbar.",
+      "deviceFallback": "Dieses Gerät",
+      "renameButton": "Umbenennen",
+      "renameLabel": "Gerätename",
+      "renameSave": "Speichern",
+      "renameCancel": "Abbrechen"
+    },
+    "idleLock": {
+      "ariaLabel": "Sitzungswarnung",
+      "message": "Vault wird in {seconds}s gesperrt.",
+      "stayButton": "Angemeldet bleiben"
+    },
+    "errors": {
+      "prfNotSupported": "Passkey unterstützt PRF nicht. Bitte ein PRF-fähiges Gerät verwenden.",
+      "prfSigninFailed": "PRF-Anmeldung fehlgeschlagen.",
+      "prfUnlockFailed": "PRF-Entsperrung fehlgeschlagen.",
+      "prfKeyNotFound": "Kein Schlüssel für diesen Passkey hinterlegt.",
+      "recoveryCodeInvalidChar": "Ungültiges Zeichen im Recovery-Code.",
+      "recoveryCodeLength": "Recovery-Code hat die falsche Länge.",
+      "generic": "Vorgang fehlgeschlagen."
+    },
+    "lifecycle": {
+      "aktiv": "Aktiv",
+      "stillgelegt": "Stillgelegt",
+      "anbieter-informiert": "Anbieter informiert",
+      "geloescht": "Gelöscht"
+    }
+  },
+  "onboarding": {
+    "wizard": {
+      "stepLabels": [
+        "Passkey",
+        "Recovery",
+        "Bestätigung"
+      ],
+      "step1Eyebrow": "SCHRITT 1 VON 3 · PASSKEY",
+      "step1Title": "Vault einrichten",
+      "step1Subtitle": "Ihr Passkey sichert diesen Tresor. Der Schlüssel verlässt nie Ihren Browser.",
+      "step2Eyebrow": "SCHRITT 2 VON 3 · RECOVERY-CODE",
+      "step2Title": "Recovery-Code notieren",
+      "step2Subtitle": "Ihre einzige Rückfallebene. NachKlang kann ihn nicht erneut zusenden.",
+      "step3Eyebrow": "SCHRITT 3 VON 3 · BESTÄTIGUNG",
+      "step3Title": "Recovery-Code bestätigen",
+      "step3Subtitle": "Geben Sie den Recovery-Code zur Sicherheit erneut ein.",
+      "backLabel": "← Zurück zum Code",
+      "openVaultButton": "Vault öffnen",
+      "passkeyErrorGeneric": "Passkey konnte nicht erstellt werden. Bitte ein PRF-fähiges Gerät verwenden."
+    },
+    "shell": {
+      "logoAriaLabel": "NachKlang Startseite",
+      "stepIndicatorAriaLabel": "Schritt {step} von {total}",
+      "defaultBackLabel": "Zurück",
+      "footerImpressum": "Impressum",
+      "footerDatenschutz": "Datenschutz",
+      "footerCopyright": "Copyright"
+    },
+    "passkey": {
+      "hintCapable": "Ihr Tresor wird mit einem Passkey auf diesem Gerät gesichert. Nichts verlässt unverschlüsselt Ihren Browser.",
+      "hintIncapable": "Dieses Gerät unterstützt möglicherweise keine PRF-fähigen Passkeys. Bitte ein aktuelles Gerät mit Plattform-Passkey verwenden.",
+      "createBusy": "Passkey wird erstellt…",
+      "createButton": "Passkey erstellen"
+    },
+    "recovery": {
+      "continueButton": "Weiter →",
+      "printTitle": "NachKlang Recovery Kit",
+      "printLabelEmail": "E-Mail",
+      "printLabelVaultId": "Vault-ID",
+      "printLabelCreatedAt": "Erstellt am",
+      "printLabelCode": "Recovery-Code",
+      "printNote": "Bewahren Sie diesen Code an einem sicheren Ort auf. Er ist Ihre einzige Möglichkeit, Ihren Tresor wiederherzustellen, wenn Ihr Passkey nicht mehr verfügbar ist. NachKlang kann Ihnen den Code nicht erneut zusenden.",
+      "printButton": "Drucken"
+    },
+    "recoveryPrint": {
+      "heading": "NachKlang Recovery Kit",
+      "labelEmail": "E-Mail",
+      "labelVaultId": "Vault-ID",
+      "labelCreatedAt": "Erstellt am",
+      "labelCode": "Recovery-Code",
+      "note": "Bewahren Sie diesen Code an einem sicheren Ort auf. Er ist Ihre einzige Möglichkeit, Ihren Tresor wiederherzustellen, wenn Sie die Passphrase vergessen. NachKlang kann Ihnen den Code nicht erneut zusenden."
+    },
+    "confirmation": {
+      "codeLabel": "Recovery-Code",
+      "mismatchError": "Code stimmt nicht überein.",
+      "consentLabel": "Ich habe den Code sicher abgelegt und verstanden, dass er meine einzige Rückfallebene ist.",
+      "backButton": "← Zurück zum Code",
+      "defaultSubmitLabel": "Vault erstellen"
+    }
+  },
+  "chrome": {
+    "app": {
+      "desktopRailAriaLabel": "Primaere Appbereiche",
+      "mobileNavAriaLabel": "Primaere Appbereiche",
+      "navVault": "Tresor",
+      "navSettings": "Einstellungen",
+      "navShared": "Mit mir geteilt",
+      "navAudit": "Protokoll"
+    },
+    "skipToWorkspace": "Direkt zum Vault"
+  },
+  "audit": {
+    "eyebrow": "Transparenz",
+    "heading": "Aktivitätsprotokoll",
+    "lead": "Eine nachvollziehbare Übersicht aller Aktivitäten rund um Ihr Konto und Ihren Tresor – einschließlich Löschungen durch System­administration oder Automatismen.",
+    "empty": "Es liegen noch keine Protokolleinträge vor.",
+    "actorSystem": "System",
+    "actorUser": "Konto",
+    "someoneTrusted": "Eine Vertrauensperson",
+    "anEntry": "einem Eintrag",
+    "event": {
+      "shareInvited": "Sie haben eine Vertrauensperson eingeladen.",
+      "shareAccepted": "{name} hat Ihre Einladung angenommen.",
+      "shareAcceptedSelf": "Sie haben eine Einladung angenommen.",
+      "shareSealed": "Sie haben einer Vertrauensperson Lesezugriff gewährt.",
+      "shareRevoked": "Sie haben den Zugriff einer Vertrauensperson widerrufen.",
+      "sharePurged": "Sie haben eine Vertrauensperson endgültig gelöscht.",
+      "vaultRead": "{name} hat Ihren Tresor geöffnet.",
+      "statusChanged": "{name} hat den Status von „{entry}“ aktualisiert.",
+      "statusChangedSelf": "Sie haben einen Bearbeitungsstatus aktualisiert.",
+      "userDeleted": "Ihr Konto wurde gelöscht.",
+      "vaultDeleted": "Ihr Tresor wurde gelöscht.",
+      "itemDeleted": "Ein Eintrag wurde aus Ihrem Tresor gelöscht.",
+      "shareDeleted": "Eine Freigabe wurde entfernt.",
+      "inviteDeleted": "Eine Einladung wurde entfernt.",
+      "keypairDeleted": "Ihr Schlüsselpaar wurde gelöscht.",
+      "passkeyDeleted": "Ein Passkey wurde entfernt.",
+      "generic": "Systemaktivität: {action}"
+    }
+  },
+  "marketing": {
+    "hero": {
+      "signinLink": "Anmelden",
+      "eyebrow": "Zero-Knowledge · Digitaler Nachlass",
+      "headline1": "Bewahren.",
+      "headline2": "Verbinden.",
+      "headline3": "Weitergeben.",
+      "lede": "Ein Tresor für Online‑Zugänge, der Ihre Passwörter nie zu sehen bekommt — und der genau die Menschen erreicht, denen Sie eines Tages den Schlüssel hinterlassen wollen.",
+      "ctaCreate": "Konto erstellen",
+      "ctaSignin": "Bereits angemeldet? Vault öffnen",
+      "footerAriaLabel": "Rechtliches",
+      "footerCopy": "© NC AGENTIC GmbH",
+      "footerImpressum": "Impressum",
+      "footerDatenschutz": "Datenschutz",
+      "footerCopyright": "Copyright"
+    },
+    "trustStrip": {
+      "ariaLabel": "Vertrauenssignale",
+      "euDataProtection": "EU-Datenschutz",
+      "hostedInGermany": "Gehostet in Deutschland",
+      "zeroKnowledge": "Zero-Knowledge by design"
+    },
+    "links": {
+      "ariaLabel": "Quellcode und Kontakt",
+      "sourceLabel": "Open Source",
+      "sourceMeta": "Quellcode auf GitHub",
+      "profileLabel": "Gerald Fehringer",
+      "profileMeta": "Profil auf LinkedIn",
+      "donateLabel": "Spenden",
+      "donateMeta": "Hosting unterstützen",
+      "donateTip": "Sie wollen die Plattform am Leben erhalten? Gerne spenden für das sichere Hosting auf Hetzner."
+    }
+  },
+  "legal": {
+    "shell": {
+      "backAriaLabel": "Zurück zur Startseite",
+      "backLabel": "Zurück"
+    },
+    "cookieBanner": {
+      "title": "Cookies & Privatsphäre",
+      "text": "NachKlang nutzt ausschließlich technisch notwendige Cookies für Anmeldung und Sitzung. Kein Tracking, keine Werbung. Mehr dazu in unserer <privacyLink>Datenschutzerklärung</privacyLink>.",
+      "btnEssential": "Nur essenzielle",
+      "btnAcceptAll": "Alle akzeptieren"
+    },
+    "info": {
+      "labelEmail": "E-Mail",
+      "labelManagingDirector": "Vertretungsberechtigte Geschäftsführung",
+      "labelRegisterCourt": "Registergericht",
+      "labelCommercialRegisterNumber": "Handelsregister-Nummer",
+      "labelResponsible": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV"
+    },
+    "impressum": {
+      "eyebrow": "Rechtliches",
+      "title": "Impressum",
+      "intro": "Angaben gemäß § 5 Telemediengesetz (TMG) und § 18 Abs. 2 Medienstaatsvertrag (MStV).",
+      "sectionProviderTitle": "Anbieter",
+      "sectionContactTitle": "Kontakt",
+      "sectionManagingDirectorTitle": "Vertretungsberechtigte Geschäftsführung",
+      "sectionRegisterTitle": "Registereintrag",
+      "sectionResponsibleTitle": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+      "sectionDisputeTitle": "Streitschlichtung",
+      "sectionDisputeBody": "Die Europäische Kommission stellt eine Plattform zur Online‑Streitbeilegung bereit: <odrLink>ec.europa.eu/consumers/odr</odrLink>. Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+      "sectionLiabilityContentTitle": "Haftung für Inhalte",
+      "sectionLiabilityContentBody": "Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+      "sectionLiabilityLinksTitle": "Haftung für Links",
+      "sectionLiabilityLinksBody": "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich."
+    },
+    "datenschutz": {
+      "eyebrow": "Rechtliches",
+      "title": "Datenschutzerklärung",
+      "introTemplate": "Stand: {date}. Diese Erklärung informiert Sie nach Art. 13 DSGVO darüber, welche personenbezogenen Daten wir bei der Nutzung von {product} verarbeiten, zu welchem Zweck und auf welcher Rechtsgrundlage.",
+      "s1Title": "1. Verantwortlicher",
+      "s1Body": "Verantwortlich im Sinne der DSGVO ist:",
+      "s2Title": "2. Zero‑Knowledge‑Prinzip",
+      "s2Body": "{product} ist als Zero‑Knowledge‑Tresor konstruiert. Ihre Vault‑Inhalte (Zugangsdaten, Notizen, Metadaten zu Online‑Diensten) werden ausschließlich in Ihrem Browser ver‑ und entschlüsselt. Auf unseren Servern liegen diese Inhalte nur in verschlüsselter Form (AES‑256‑GCM; ältere Einträge können mit XChaCha20‑Poly1305 verschlüsselt sein und werden automatisch migriert). Der Schlüssel verlässt Ihr Gerät zu keinem Zeitpunkt — auch nicht im Speicher unserer Server. Wir können den Inhalt Ihres Vaults technisch nicht einsehen, nicht wiederherstellen und nicht entschlüsseln.",
+      "s3Title": "3. Welche Daten wir verarbeiten",
+      "s31Title": "3.1 Konto‑Daten",
+      "s31Body": "Bei der Registrierung verarbeiten wir Ihren Namen und Ihre E‑Mail‑Adresse. Die Anmeldung erfolgt passwortlos per Passkey (WebAuthn). Zur Identitätsprüfung bei der Registrierung und als Fallback‑Anmeldung versenden wir Einmalcodes (OTP) per E‑Mail. Wir speichern keine Passwörter. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).",
+      "s32Title": "3.2 Passkey‑Anmeldung (WebAuthn)",
+      "s32Body": "Für die passwortlose Anmeldung speichern wir die Anmeldedaten Ihrer Passkeys (Credential‑ID und öffentlicher Schlüssel). Der private Schlüssel verbleibt ausschließlich auf Ihrem Gerät und wird uns nie übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Kontosicherheit).",
+      "s33Title": "3.3 Vault‑Daten",
+      "s33Body": "Alle Vault‑Inhalte werden ausschließlich verschlüsselt gespeichert. Server‑seitig liegen nur Ciphertext, Nonce und gebundene Metadaten (vault‑ID, item‑ID, Revisionszähler). Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.",
+      "s34Title": "3.4 Server‑Logs",
+      "s34Body": "Beim Aufruf der Anwendung verarbeitet unser Hosting‑Provider technisch notwendige Daten (IP‑Adresse, Datum und Uhrzeit, aufgerufene URL, User‑Agent). Diese werden für maximal 14 Tage zur Abwehr von Missbrauch gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.",
+      "s35Title": "3.5 Bot‑Schutz (Cloudflare Turnstile)",
+      "s35Body": "Zur Abwehr automatisierter Angriffe und Massen‑Registrierungen setzen wir bei der Registrierung Cloudflare Turnstile ein. Dabei werden Ihre IP‑Adresse und technische Browser‑Informationen an Cloudflare übermittelt und verarbeitet, um zu prüfen, ob die Anfrage von einem Menschen stammt. Anbieter ist die Cloudflare, Inc. (USA); es besteht ein Auftragsverarbeitungs‑Vertrag mit Standardvertragsklauseln. Turnstile setzt keine Tracking‑Cookies. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Abwehr von Missbrauch).",
+      "s4Title": "4. Cookies",
+      "s4Body": "{product} setzt ausschließlich technisch notwendige Cookies ein, die für die Authentifizierung und das Sitzungs‑Handling erforderlich sind. Es werden keine Tracking‑, Analyse‑ oder Werbe‑Cookies gesetzt. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TTDSG.",
+      "s5Title": "5. Hosting",
+      "s5Body": "Wir hosten {product} bei {provider}. Mit dem Anbieter besteht ein Auftragsverarbeitungs‑Vertrag gemäß Art. 28 DSGVO. Die Verarbeitung erfolgt ausschließlich auf Servern in Deutschland.",
+      "s6Title": "6. E‑Mail‑Versand",
+      "s6Body": "Transaktionale E‑Mails (Verifizierung, Sicherheitsbenachrichtigungen) versenden wir über {mailService}. Mit dem Anbieter besteht ein Auftragsverarbeitungs‑Vertrag. Empfänger‑Adresse und Zustellstatus werden für maximal 30 Tage gespeichert.",
+      "s7Title": "7. Ihre Rechte",
+      "s7Intro": "Sie haben jederzeit das Recht auf:",
+      "s7Right1": "Auskunft über Ihre bei uns gespeicherten Daten (Art. 15 DSGVO),",
+      "s7Right2": "Berichtigung unrichtiger Daten (Art. 16 DSGVO),",
+      "s7Right3": "Löschung Ihrer Daten (Art. 17 DSGVO),",
+      "s7Right4": "Einschränkung der Verarbeitung (Art. 18 DSGVO),",
+      "s7Right5": "Datenübertragbarkeit (Art. 20 DSGVO),",
+      "s7Right6": "Widerspruch gegen die Verarbeitung (Art. 21 DSGVO).",
+      "s7ContactPrefix": "Zur Wahrnehmung dieser Rechte genügt eine formlose Nachricht an unseren Datenschutz‑Kontakt:",
+      "s8Title": "8. Beschwerderecht",
+      "s8Body": "Sie haben das Recht, sich bei einer Datenschutz‑Aufsichtsbehörde zu beschweren. Für uns zuständig ist der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit, Ludwig‑Erhard‑Straße 22, 20459 Hamburg.",
+      "s9Title": "9. Datensicherheit",
+      "s9Body": "Wir setzen technische und organisatorische Maßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust, Zerstörung oder unbefugten Zugriff zu schützen. Dazu gehören TLS‑Transport‑Verschlüsselung, verschlüsselte Datenbanken, regelmäßige Sicherheits‑Audits und das Zero‑Knowledge‑Modell.",
+      "s10Title": "10. Änderungen dieser Erklärung",
+      "s10Body": "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, sofern dies aus rechtlichen oder technischen Gründen erforderlich wird. Wesentliche Änderungen kündigen wir per E‑Mail an."
+    },
+    "copyright": {
+      "eyebrow": "Rechtliches",
+      "title": "Copyright & Marken",
+      "introTemplate": "© {year} {company}. Alle Rechte vorbehalten.",
+      "s1Title": "Urheberrecht",
+      "s1Body": "Die auf den Seiten von {product} veröffentlichten Inhalte, Werke und Gestaltungen — insbesondere Texte, Grafiken, Bildmarken, Logos und der Quellcode der Anwendung — unterliegen dem deutschen Urheberrecht und internationalen Urheberrechts‑Übereinkommen. Jede Vervielfältigung, Bearbeitung, Verbreitung oder sonstige Verwertung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen schriftlichen Zustimmung der {company}.",
+      "s2Title": "Markenrechte",
+      "s2Body": "„NachKlang“ sowie das zugehörige Wort‑Bild‑Zeichen sind Marken der {company}. Eine Nutzung ohne ausdrückliche Genehmigung — insbesondere zu kommerziellen Zwecken oder in einer Weise, die geeignet ist, Verwechslungen hervorzurufen — ist nicht gestattet. Markennennungen Dritter dienen lediglich der Identifikation und bleiben Eigentum ihrer jeweiligen Inhaber.",
+      "s3Title": "Software‑Lizenzhinweise",
+      "s3Body": "{product} verwendet quelloffene Komponenten, die unter den jeweils dort beigefügten Lizenzen stehen (u. a. MIT, Apache 2.0, ISC). Eine Liste der verwendeten Bibliotheken samt Lizenztexten stellen wir auf Anfrage zur Verfügung.",
+      "s4Title": "Bildnachweise",
+      "s4Body": "Sämtliche Bildmarken, Icons und Illustrationen wurden entweder im Auftrag der {company} erstellt oder stammen aus lizenzfreien Quellen mit einer Lizenz, die die Nutzung in {product} ausdrücklich erlaubt.",
+      "s5Title": "Kontakt für Lizenzanfragen",
+      "s5Body": "Anfragen zu Lizenzierung, Wiederverwendung oder Pressematerial richten Sie bitte an <email/>."
+    }
+  },
+  "email": {
+    "otp": {
+      "subject": "NachKlang E-Mail-Code",
+      "intro": "Ihr NachKlang E-Mail-Code lautet:",
+      "logoAlt": "NachKlang",
+      "expiry": "Der Code ist 10 Minuten gültig. Falls Sie ihn nicht angefordert haben, ignorieren Sie diese E‑Mail.",
+      "footer": "Diese Nachricht wurde automatisch von NachKlang gesendet. Bitte antworten Sie nicht darauf."
+    },
+    "invite": {
+      "subject": "{owner} möchte Ihnen Zugriff auf einen digitalen Nachlass geben",
+      "logoAlt": "NachKlang",
+      "heading": "Sie wurden als Vertrauensperson eingeladen",
+      "intro": "{owner} möchte Ihnen mit NachKlang Lesezugriff auf den eigenen digitalen Nachlass geben. Alles bleibt Ende-zu-Ende verschlüsselt – Zugriff erhalten Sie erst nach einer gemeinsamen Bestätigung.",
+      "cta": "Einladung annehmen",
+      "expiry": "Dieser Link ist {days} Tage gültig. Falls Sie diese Einladung nicht erwartet haben, ignorieren Sie diese E‑Mail.",
+      "footer": "Diese Nachricht wurde automatisch von NachKlang gesendet. Bitte antworten Sie nicht darauf."
+    },
+    "offboarding": {
+      "subject": "{owner} hat das NachKlang-Konto gelöscht – Ihr Zugriff endet",
+      "intro": "{owner} hat das eigene NachKlang-Konto endgültig gelöscht.",
+      "body": "Damit endet Ihr Lesezugriff auf den geteilten digitalen Nachlass. Alle zugehörigen Daten wurden unwiderruflich entfernt.",
+      "footer": "Diese Nachricht wurde automatisch von NachKlang gesendet. Bitte antworten Sie nicht darauf."
+    },
+    "errors": {
+      "sendMailFailed": "E-Mail-Versand fehlgeschlagen.",
+      "tokenFetchFailed": "Authentifizierungs-Token konnte nicht abgerufen werden.",
+      "tokenMissing": "Kein Zugriffstoken in der Serverantwort enthalten."
+    }
+  },
+  "trustee": {
+    "owner": {
+      "heading": "Vertrauenspersonen",
+      "lead": "Geben Sie einer vertrauten Person Lesezugriff auf Ihren digitalen Nachlass. Der Zugriff ist Ende-zu-Ende verschlüsselt und wird erst nach einer gemeinsamen Bestätigung aktiv.",
+      "emailLabel": "E-Mail der Vertrauensperson",
+      "nameLabel": "Bezeichnung (z. B. „Meine Schwester“)",
+      "submit": "Einladen",
+      "submitBusy": "Einladung wird gesendet…",
+      "invitedEmailed": "Einladung an {email} gesendet.",
+      "invitedNoMail": "Einladung erstellt. Der E-Mail-Versand ist fehlgeschlagen – teilen Sie den Link manuell.",
+      "copyLink": "Link kopieren",
+      "copied": "Kopiert",
+      "listHeading": "Aktuelle Vertrauenspersonen",
+      "empty": "Noch keine Vertrauenspersonen eingeladen.",
+      "fingerprintLabel": "Bestätigungscode",
+      "fingerprintHint": "Vergleichen Sie diesen Code persönlich oder telefonisch mit Ihrer Vertrauensperson, bevor Sie den Zugriff freigeben.",
+      "statusPendingVerify": "Wartet auf Bestätigung",
+      "statusActive": "Aktiv",
+      "statusRevoked": "Widerrufen",
+      "seal": "Bestätigen & freigeben",
+      "sealBusy": "Wird freigegeben…",
+      "revoke": "Zugriff widerrufen",
+      "revokeBusy": "Wird widerrufen…",
+      "purge": "Endgültig löschen",
+      "purgeBusy": "Wird gelöscht…",
+      "createdAt": "Eingeladen am {date}",
+      "lastAccess": "Zuletzt abgerufen am {date}",
+      "neverAccessed": "Noch nicht abgerufen",
+      "accessCount": "{count}× abgerufen",
+      "showLog": "Zugriffsverlauf anzeigen",
+      "hideLog": "Verlauf ausblenden",
+      "logEmpty": "Noch keine Zugriffe.",
+      "error": "Aktion fehlgeschlagen. Bitte erneut versuchen."
+    },
+    "accept": {
+      "eyebrow": "Einladung",
+      "heading": "Zugriff als Vertrauensperson",
+      "lead": "{owner} möchte Ihnen Lesezugriff auf den eigenen digitalen Nachlass geben.",
+      "loading": "Einladung wird geladen…",
+      "invalid": "Diese Einladung ist ungültig oder wurde nicht gefunden.",
+      "notAcceptable": "Diese Einladung ist abgelaufen oder wurde bereits verwendet.",
+      "acceptCta": "Einladung annehmen",
+      "acceptBusy": "Wird bestätigt…",
+      "successHeading": "Fast geschafft",
+      "successLead": "Lesen Sie {owner} diesen Bestätigungscode vor, damit Ihre Identität geprüft werden kann. Sobald {owner} bestätigt, erhalten Sie Zugriff.",
+      "fingerprintLabel": "Ihr Bestätigungscode",
+      "error": "Annahme fehlgeschlagen. Bitte erneut versuchen.",
+      "authPrompt": "Um diese Einladung anzunehmen, benötigen Sie ein NachKlang-Konto mit Passkey (z. B. Touch ID, Sicherheitsschlüssel oder Smartphone-Passkey).",
+      "createAccount": "Konto erstellen",
+      "signIn": "Anmelden",
+      "finishSetup": "Einrichtung abschließen",
+      "registerAndAccept": "Passkey erstellen & annehmen",
+      "waitingHeading": "Fast geschafft",
+      "waitingLead": "Zeigen Sie {owner} diesen Bestätigungscode. Sobald {owner} den Zugriff freigibt, erscheint der Tresor unter „Mit mir geteilt“.",
+      "toShared": "Zu „Mit mir geteilt“",
+      "reopenNote": "Öffnen Sie danach den Einladungslink aus Ihrer E-Mail erneut, um die Einladung anzunehmen.",
+      "backToVault": "Zu meinem Tresor"
+    },
+    "shared": {
+      "listEyebrow": "Geteilt",
+      "listHeading": "Mit mir geteilt",
+      "listLead": "Diese Tresore wurden Ihnen als Vertrauensperson freigegeben.",
+      "empty": "Aktuell ist kein Tresor mit Ihnen geteilt.",
+      "ownerLabel": "Freigegeben von {owner}",
+      "open": "Öffnen",
+      "viewEyebrow": "Geteilter Tresor",
+      "viewHeading": "Geteilter Tresor",
+      "ownerBadge": "Tresor von {owner}",
+      "ownerUpdated": "Zuletzt vom Inhaber aktualisiert: {date}",
+      "readOnly": "Nur Lesezugriff",
+      "unlockLead": "Entsperren Sie mit Ihrem Passkey, um die freigegebenen Einträge anzusehen.",
+      "unlock": "Mit Passkey entsperren",
+      "unlockBusy": "Wird entsperrt…",
+      "forbidden": "Sie haben keinen aktiven Zugriff auf diesen Tresor.",
+      "error": "Konnte nicht geladen werden. Bitte erneut versuchen.",
+      "entriesEmpty": "Dieser Tresor enthält keine Einträge.",
+      "fieldLogin": "Login",
+      "fieldStatus": "Status",
+      "handlingStatus": "Ihr Bearbeitungsstatus",
+      "handlingStatusHint": "Nur Ihr Vermerk – der Eintrag der Inhaberin/des Inhabers bleibt unverändert.",
+      "handlingStatusUnset": "Noch nicht bearbeitet",
+      "fieldHint": "Hinweise",
+      "fieldNotes": "Notizen",
+      "fieldEmpty": "—",
+      "back": "← Zurück zur Übersicht"
+    }
+  },
+  "account": {
+    "settings": {
+      "eyebrow": "Konto",
+      "heading": "Kontoeinstellungen",
+      "lead": "Verwalten Sie Ihr Konto.",
+      "backLink": "← Zurück zur Übersicht"
+    }
+  },
+  "auth": {
+    "signin": {
+      "eyebrow": "Anmelden",
+      "title": "Willkommen zurück",
+      "subtitle": "Melden Sie sich mit Ihrem Passkey an.",
+      "createAccountCta": "Noch kein Konto? Jetzt einrichten",
+      "submitBusy": "Anmeldung läuft…",
+      "submit": "Mit Passkey anmelden",
+      "errorGeneric": "Anmeldung mit Passkey fehlgeschlagen.",
+      "errorWrongPasskey": "Falscher Passkey. Bitte verwenden Sie den Passkey bzw. Sicherheitsschlüssel, den Sie für dieses Konto eingerichtet haben (bei mehreren Windows-Hello-/Geräteschlüsseln den richtigen wählen) – oder melden Sie sich unten per E-Mail-Code an.",
+      "errorVaultMaterial": "Tresor-Material nicht abrufbar.",
+      "emailFallbackToggle": "Passkey nicht verfügbar? Mit E-Mail-Code anmelden"
+    },
+    "shell": {
+      "logoAriaLabel": "NachKlang Startseite",
+      "footerImpressum": "Impressum",
+      "footerDatenschutz": "Datenschutz",
+      "footerCopyright": "Copyright"
+    },
+    "emailOtp": {
+      "nameLabel": "Name",
+      "emailLabel": "E-Mail",
+      "submitDefault": "Code anfordern",
+      "errorNameRequired": "Bitte einen Namen eingeben.",
+      "errorEmailInvalid": "Bitte eine gültige E-Mail-Adresse eingeben.",
+      "errorCaptchaRequired": "Bitte bestätigen Sie die Sicherheitsprüfung.",
+      "errorRequestFailed": "Code konnte nicht angefordert werden. Bitte erneut versuchen."
+    },
+    "emailOtpSignup": {
+      "eyebrow": "Registrierung",
+      "title": "Konto erstellen",
+      "subtitleStep1": "Schritt 1 von 2: Wir senden Ihnen einen Code per E-Mail.",
+      "subtitleStep2": "Schritt 2 von 2: Geben Sie den Code aus Ihrer E-Mail ein.",
+      "existingAccountCta": "Schon ein Konto? Anmelden"
+    },
+    "emailOtpSignin": {
+      "submitLabel": "Code an meine E-Mail senden"
+    },
+    "otpVerify": {
+      "codeSentNotice": "Wir haben einen Code an {email} gesendet.",
+      "codeLabel": "Code",
+      "submit": "Bestätigen",
+      "errorCodeLength": "Bitte den 6-stelligen Code eingeben.",
+      "errorCodeInvalid": "Code ungültig oder abgelaufen. Bitte erneut versuchen."
+    },
+    "verifyEmailResult": {
+      "eyebrow": "Registrierung",
+      "title": "E-Mail bestätigen",
+      "subtitle": "Schritt 2 von 3",
+      "verifying": "Bestätige Link...",
+      "successMessage": "Deine E-Mail ist bestätigt.",
+      "successCta": "Weiter zur Einrichtung",
+      "errorMessage": "Link abgelaufen oder ungültig. Bitte erneut registrieren."
+    },
+    "turnstile": {
+      "widgetAriaLabel": "Sicherheitsprüfung"
+    },
+    "signedInBadge": {
+      "lock": "Sperren",
+      "signOut": "Abmelden"
+    }
+  }
+}

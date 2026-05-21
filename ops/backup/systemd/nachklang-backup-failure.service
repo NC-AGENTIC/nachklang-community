@@ -1,0 +1,9 @@
+[Unit]
+Description=Alert that the NachKlang backup failed
+
+[Service]
+Type=oneshot
+# Always make the failure loud in the journal. If BACKUP_ALERT_WEBHOOK is set in the env file,
+# also POST a short alert. No mail dependency.
+EnvironmentFile=-/opt/nachklang/.env
+ExecStart=/bin/sh -c 'echo "NACHKLANG BACKUP FAILED at $(date -u +%%FT%%TZ)" | systemd-cat -t nachklang-backup -p err; [ -n "$BACKUP_ALERT_WEBHOOK" ] && curl -fsS -m 10 -X POST -d "nachklang backup failed on $(hostname) at $(date -u +%%FT%%TZ)" "$BACKUP_ALERT_WEBHOOK" || true'

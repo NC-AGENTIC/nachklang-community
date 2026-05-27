@@ -10,6 +10,7 @@ import { LandingTrustStrip } from "./landing-trust-strip";
 export function LandingHero() {
   const t = useTranslations("marketing.hero");
   const tCommon = useTranslations("common");
+  const tGuide = useTranslations("guide");
 
   return (
     <>
@@ -32,6 +33,9 @@ export function LandingHero() {
         </Link>
         <div className="landing__top-actions">
           <LanguageSwitcher ariaLabel={tCommon("languageSwitcherAria")} />
+          <Link href="/howto" className="landing__topcta landing__topcta--guide">
+            {tGuide("navLink")}
+          </Link>
           <Link href="/signin" className="landing__topcta">
             {t("signinLink")}
             <span aria-hidden="true">→</span>
@@ -61,6 +65,10 @@ export function LandingHero() {
           <Link href="/signin" className="landing__cta landing__cta--ghost">
             {t("ctaSignin")}
           </Link>
+          <Link href="/howto" className="landing__howto">
+            {tGuide("howtoButton")}
+            <span aria-hidden="true" className="landing__howto-arrow">→</span>
+          </Link>
         </div>
 
         <LandingTrustStrip />
@@ -83,6 +91,10 @@ export function LandingHero() {
         <span aria-hidden="true" className="landing__foot-sep">·</span>
         <Link href="/copyright" className="landing__foot-link">
           {t("footerCopyright")}
+        </Link>
+        <span aria-hidden="true" className="landing__foot-sep">·</span>
+        <Link href="/security" className="landing__foot-link">
+          {t("footerSecurity")}
         </Link>
       </footer>
     </>

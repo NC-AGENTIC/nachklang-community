@@ -292,7 +292,8 @@
       "footerCopy": "© NC AGENTIC GmbH",
       "footerImpressum": "Mentions légales",
       "footerDatenschutz": "Politique de confidentialité",
-      "footerCopyright": "Copyright"
+      "footerCopyright": "Copyright",
+      "footerSecurity": "Sécurité"
     },
     "trustStrip": {
       "ariaLabel": "Signaux de confiance",
@@ -586,6 +587,74 @@
     "signedInBadge": {
       "lock": "Verrouiller",
       "signOut": "Se déconnecter"
+    }
+  },
+  "guide": {
+    "navLink": "HowTo",
+    "inAppLink": "Aide",
+    "metaTitle": "HowTo · NachKlang",
+    "metaDescription": "Guide pas à pas : créer un compte, configurer une passkey, remplir le coffre, partager en toute sécurité et supprimer vos données.",
+    "fallbackNotice": "Ce guide est actuellement disponible en allemand et en anglais. D'autres traductions arrivent bientôt.",
+    "backLabel": "Retour à l'accueil",
+    "securityRiskLabel": "Risque",
+    "securityMitigationLabel": "Comment nous vous protégeons",
+    "toc": { "ariaLabel": "Table des matières", "heading": "Sommaire" },
+    "howtoButton": "Comment ça marche",
+    "securitySpotlight": {
+      "eyebrow": "ZERO-KNOWLEDGE",
+      "title": "La sécurité d'abord. Le reste ensuite.",
+      "lede": "Avant de commencer : voyez vous-même comment vos données sont chiffrées dans votre navigateur — et pourquoi notre serveur ne peut jamais les déchiffrer.",
+      "cta": "Voir notre architecture de sécurité"
+    }
+  },
+  "security": {
+    "metaTitle": "Architecture de sécurité · NachKlang",
+    "metaDescription": "Visualisation interactive de notre architecture de sécurité Zero-Knowledge.",
+    "title": "Comment nous protégeons vos données",
+    "subtitle": "Un guide interactif des couches de sécurité qui protègent votre coffre-fort Zero-Knowledge.",
+    "tabSimple": "Explication simple",
+    "tabNerd": "Pour les technophiles & nerds",
+    "toggleBootstrap": "Créer un coffre",
+    "toggleEntry": "Sécuriser une entrée",
+    "client": "Votre appareil (Navigateur)",
+    "server": "Serveur NachKlang",
+    "audienceLabel": "Public cible",
+    "backTop": "Retour",
+    "backHome": "Retour à l'accueil",
+    "stepLabel": "Étape",
+    "autoLabel": "Auto",
+    "assuranceTitle": "Garantie Zero-Knowledge",
+    "assuranceBootstrap": "Notre serveur ne reçoit à aucun moment votre clé maîtresse brute ni vos données biométriques. Les clés sont enveloppées mathématiquement dans la sandbox sécurisée de votre navigateur avant transmission.",
+    "assuranceEntry": "Toutes les liaisons structurelles (coffre, éléments, propriétaire) sont signées cryptographiquement côté client. Notre serveur fonctionne exclusivement comme un registre aveugle.",
+    "average": {
+      "bootstrap": {
+        "step1": "Génération de clé : Une clé maîtresse forte (clé d'or) est générée directement dans votre navigateur. Elle ne quitte jamais votre ordinateur.",
+        "step2": "Verrouillage biométrique : Votre clé d'accès biométrique (Touch ID, Windows Hello) crée un cadenas numérique unique pour protéger votre clé maîtresse.",
+        "step3": "Clé de secours : Un long code de récupération est généré et traité de manière intensive pour établir un second cadenas de sécurité.",
+        "step4": "Scellement : La clé maîtresse est emballée dans deux boîtes de sécurité chiffrées et indépendantes (une pour votre clé d'accès, une pour votre code de récupération).",
+        "step5": "Transmission : Seules les boîtes scellées sont envoyées au serveur. Les clés d'origine en clair sont immédiatement effacées de la mémoire de votre navigateur."
+      },
+      "entry": {
+        "step1": "Validation : Le navigateur vérifie votre saisie et interdit les vrais mots de passe. Seules les indications de localisation (ex. 'stocké dans 1Password') sont autorisées.",
+        "step2": "Étiquetage : Un sceau numérique permanent est apposé sur l'entrée, la liant de manière irréversible à votre coffre, votre compte et au numéro de révision.",
+        "step3": "Chiffrement local : L'entrée est chiffrée dans le navigateur à l'aide de la clé maîtresse (AES-256-GCM). Les données en clair restent en sécurité sur votre appareil.",
+        "step4": "Stockage : L'enveloppe chiffrée est envoyée au serveur. Le serveur ne voit que des caractères illisibles et ne peut jamais la déchiffrer."
+      }
+    },
+    "nerd": {
+      "bootstrap": {
+        "step1": "Génération de la clé racine : Le client génère une clé racine AES-GCM de 256 bits via l'API WebCrypto. Une fois importée, elle est isolée en RAM en tant que CryptoKey non exportable.",
+        "step2": "Extension PRF WebAuthn : Via l'extension PRF de la clé d'accès, une cérémonie biométrique génère une valeur d'entropie déterministe, étirée en une KEK de 256 bits via HKDF-SHA-256.",
+        "step3": "Argon2id KDF : Le code de récupération Crockford-Base32 de 120 bits est étiré à l'aide d'Argon2id (64 Mo de RAM, 3 itérations) pour dériver une KEK de récupération indépendante.",
+        "step4": "Emballage de la clé racine : La clé racine est emballée deux fois (une fois avec la KEK dérivée du PRF, une fois avec la KEK de récupération) en utilisant AES-256-GCM avec des métadatas authentifiées (AAD).",
+        "step5": "Mise à zéro et synchronisation : Tous les octets de clé transitoires en clair sont effacés via memzero. Seules les enveloppes de clé emballées et la politique KDF sont synchronisées avec la base de données via HTTPS."
+      },
+      "entry": {
+        "step1": "Vérification du schéma : Les données saisies sont validées via assertNoSecretFields() et un schéma Zod pour rejeter les mots de passe et éviter l'exposition de secrets.",
+        "step2": "Liaison AAD : Les métadonnées (vaultId, itemId, ownerId, revision) sont liées en tant que données authentifiées supplémentaires (AAD) pour empêcher les attaques par rejeu ou transfert de coffre.",
+        "step3": "Chiffrement AES-256-GCM : L'entrée est chiffrée côté client à l'aide de la clé racine non exportable, d'un IV aléatoire de 12 octets et des métadonnées AAD.",
+        "step4": "Synchronisation serveur : Le serveur reçoit uniquement la charge utile JSON contenant le texte chiffré, l'IV et l'AAD. Sans les clés, le serveur ne peut pas accéder au texte en clair."
+      }
     }
   }
 }

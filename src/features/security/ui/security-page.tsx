@@ -6,7 +6,6 @@ import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/features/i18n/ui/language-switcher";
 import { 
   Lock, 
-  Unlock, 
   Key, 
   Database, 
   ArrowLeft, 
@@ -14,12 +13,8 @@ import {
   Play, 
   Pause, 
   ShieldCheck, 
-  Fingerprint, 
-  FileText, 
-  ShieldAlert, 
   Code,
   Laptop,
-  CheckCircle,
   HelpCircle,
   RotateCcw
 } from "lucide-react";

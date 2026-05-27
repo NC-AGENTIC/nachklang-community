@@ -292,7 +292,8 @@
       "footerCopy": "© NC AGENTIC GmbH",
       "footerImpressum": "Legal Notice",
       "footerDatenschutz": "Privacy Policy",
-      "footerCopyright": "Copyright"
+      "footerCopyright": "Copyright",
+      "footerSecurity": "Security"
     },
     "trustStrip": {
       "ariaLabel": "Trust signals",
@@ -586,6 +587,74 @@
     "signedInBadge": {
       "lock": "Lock",
       "signOut": "Sign out"
+    }
+  },
+  "guide": {
+    "navLink": "HowTo",
+    "inAppLink": "Help",
+    "metaTitle": "HowTo · NachKlang",
+    "metaDescription": "Step-by-step guide: create your account, set up a passkey, fill your vault, share safely and delete your data.",
+    "fallbackNotice": "This guide is currently available in German and English. More translations are coming.",
+    "backLabel": "Back to home",
+    "securityRiskLabel": "Risk",
+    "securityMitigationLabel": "How we protect you",
+    "toc": { "ariaLabel": "Table of contents", "heading": "Contents" },
+    "howtoButton": "How it works",
+    "securitySpotlight": {
+      "eyebrow": "ZERO-KNOWLEDGE",
+      "title": "Security first. Everything else after.",
+      "lede": "Before you dive in: see for yourself how your data is encrypted inside your browser — and why our server can never decrypt it.",
+      "cta": "See our Security Architecture"
+    }
+  },
+  "security": {
+    "metaTitle": "Security Architecture · NachKlang",
+    "metaDescription": "Interactive visualization of our zero-knowledge security architecture.",
+    "title": "How We Protect Your Data",
+    "subtitle": "An interactive guide to the security layers behind your zero-knowledge vault.",
+    "tabSimple": "Simple Explanation",
+    "tabNerd": "For Techies & Nerds",
+    "toggleBootstrap": "Create Vault",
+    "toggleEntry": "Secure Entry",
+    "client": "Your Device (Browser)",
+    "server": "NachKlang Server",
+    "audienceLabel": "Audience",
+    "backTop": "Back",
+    "backHome": "Back to Home",
+    "stepLabel": "Step",
+    "autoLabel": "Auto",
+    "assuranceTitle": "Zero-Knowledge Assurance",
+    "assuranceBootstrap": "At no point does our server receive your raw Master Key or biometrics. Keys are mathematically wrapped inside your browser's secure sandbox before transmission.",
+    "assuranceEntry": "All structural bindings (vault, items, owner) are cryptographically signed on the client. Our server operates exclusively as a blind ledger.",
+    "average": {
+      "bootstrap": {
+        "step1": "Key Generation: A strong master key (Golden Key) is created directly inside your browser. It never leaves your computer.",
+        "step2": "Fingerprint Lock: Your biometric passkey (Touch ID, Windows Hello) creates a unique digital padlock to protect your master key.",
+        "step3": "Emergency Key: A long recovery code is generated and heavily processed to establish a second security padlock.",
+        "step4": "Sealing: The master key is packed into two independent, encrypted security boxes (one for your passkey, one for your recovery code).",
+        "step5": "Transmission: Only the sealed boxes are sent to the server. The original plaintext keys are wiped from browser memory immediately."
+      },
+      "entry": {
+        "step1": "Validation: The browser checks your entry and forbids real passwords. Only location hints (e.g., 'stored in 1Password') are allowed.",
+        "step2": "Tagging: A permanent digital seal is attached to the entry, binding it irreversibly to your vault, account, and revision count.",
+        "step3": "Local Encryption: The entry is encrypted in the browser using the master key (AES-256-GCM). The plaintext remains safe on your device.",
+        "step4": "Storage: The encrypted envelope is sent to the server. The server only sees unreadable ciphertext and can never decrypt it."
+      }
+    },
+    "nerd": {
+      "bootstrap": {
+        "step1": "Root Key Generation: The client generates a 256-bit AES-GCM Root Key via the WebCrypto API. Once imported, it is isolated in RAM as a non-extractable CryptoKey.",
+        "step2": "WebAuthn PRF Extension: Using the passkey's PRF extension, a biometric ceremony outputs a deterministic entropy value, stretched into a 256-bit KEK via HKDF-SHA-256.",
+        "step3": "Argon2id KDF: The 120-bit Crockford-Base32 recovery code is stretched using Argon2id (64 MiB RAM, 3 iterations) to derive an independent recovery KEK.",
+        "step4": "Root Key Wrapping: The Root Key is wrapped twice (once with the PRF-derived KEK, once with the recovery KEK) using AES-256-GCM with authenticated metadata (AAD).",
+        "step5": "Zeroing & Sync: All transient plaintext key bytes are cleared via memzero. Only the wrapped key envelopes and KDF policy are synced to the DB via HTTPS."
+      },
+      "entry": {
+        "step1": "Schema Checking: Input is validated via assertNoSecretFields() and a Zod schema to reject password-like keys and prevent secret exposure.",
+        "step2": "AAD Binding: Metadata (vaultId, itemId, ownerId, revision) is bound as Additional Authenticated Data (AAD) to prevent replay or cross-vault tampering.",
+        "step3": "AES-256-GCM Encryption: The entry is encrypted client-side using the non-extractable Root Key, a fresh 12-byte random IV, and the AAD metadata.",
+        "step4": "Server Sync: The server receives only the JSON payload containing the ciphertext, IV, and AAD. Without keys, the server cannot access the plaintext."
+      }
     }
   }
 }

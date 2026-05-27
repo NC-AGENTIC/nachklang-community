@@ -9,6 +9,17 @@
 }
 
 {$CADDY_SITE_ADDRESS::80} {
+	# Structured access log to container stdout (captured by `docker logs`). Required for
+	# request-level observability — without it we cannot see auth/OTP traffic volume or
+	# spot abuse patterns. Static assets are dropped to keep the signal-to-noise tractable
+	# (the auth/API paths we actually need to monitor stay in the log).
+	log {
+		output stdout
+		format json
+	}
+	@static path /_next/static/* /brand/* /favicon.ico
+	log_skip @static
+
 	encode zstd gzip
 	header {
 		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"

@@ -292,7 +292,8 @@
       "footerCopy": "© NC AGENTIC GmbH",
       "footerImpressum": "Aviso legal",
       "footerDatenschutz": "Política de privacidad",
-      "footerCopyright": "Copyright"
+      "footerCopyright": "Copyright",
+      "footerSecurity": "Seguridad"
     },
     "trustStrip": {
       "ariaLabel": "Señales de confianza",
@@ -586,6 +587,74 @@
     "signedInBadge": {
       "lock": "Bloquear",
       "signOut": "Cerrar sesión"
+    }
+  },
+  "guide": {
+    "navLink": "HowTo",
+    "inAppLink": "Ayuda",
+    "metaTitle": "HowTo · NachKlang",
+    "metaDescription": "Guía paso a paso: crea tu cuenta, configura una passkey, llena tu caja fuerte, comparte de forma segura y elimina tus datos.",
+    "fallbackNotice": "Esta guía está disponible actualmente en alemán e inglés. Pronto habrá más traducciones.",
+    "backLabel": "Volver al inicio",
+    "securityRiskLabel": "Riesgo",
+    "securityMitigationLabel": "Cómo te protegemos",
+    "toc": { "ariaLabel": "Índice", "heading": "Contenido" },
+    "howtoButton": "Cómo funciona",
+    "securitySpotlight": {
+      "eyebrow": "ZERO-KNOWLEDGE",
+      "title": "Primero la seguridad. Después, todo lo demás.",
+      "lede": "Antes de empezar: vea por sí mismo cómo se cifran sus datos dentro de su navegador, y por qué nuestro servidor nunca podrá descifrarlos.",
+      "cta": "Ver nuestra arquitectura de seguridad"
+    }
+  },
+  "security": {
+    "metaTitle": "Arquitectura de seguridad · NachKlang",
+    "metaDescription": "Visualización interactiva de nuestra arquitectura de seguridad de conocimiento cero.",
+    "title": "Cómo protegemos sus datos",
+    "subtitle": "Una guía interactiva de las capas de seguridad que respaldan su bóveda de conocimiento cero.",
+    "tabSimple": "Explicación sencilla",
+    "tabNerd": "Para técnicos y nerds",
+    "toggleBootstrap": "Crear bóveda",
+    "toggleEntry": "Asegurar entrada",
+    "client": "Su dispositivo (Navegador)",
+    "server": "Servidor de NachKlang",
+    "audienceLabel": "Audiencia",
+    "backTop": "Volver",
+    "backHome": "Volver al inicio",
+    "stepLabel": "Paso",
+    "autoLabel": "Auto",
+    "assuranceTitle": "Garantía de conocimiento cero",
+    "assuranceBootstrap": "En ningún momento nuestro servidor recibe su clave maestra en bruto ni datos biométricos. Las claves se envuelven matemáticamente dentro del entorno seguro de su navegador antes de la transmisión.",
+    "assuranceEntry": "Todos los vínculos estructurales (bóveda, elementos, propietario) se firman criptográficamente en el cliente. Nuestro servidor opera exclusivamente como un libro contable ciego.",
+    "average": {
+      "bootstrap": {
+        "step1": "Generación de claves: Se genera una clave maestra fuerte (Clave dorada) directamente en su navegador. Nunca sale de su ordenador.",
+        "step2": "Bloqueo por huella: Su llave de paso biométrica (Touch ID, Windows Hello) crea un candado digital único para proteger su clave maestra.",
+        "step3": "Clave de emergencia: Se genera un código de recuperación largo y se procesa intensamente para establecer un segundo candado de seguridad.",
+        "step4": "Sellado: La clave maestra se empaqueta en dos cajas de seguridad cifradas e independientes (una para su llave de paso y otra para su código de recuperación).",
+        "step5": "Transmisión: Solo las cajas selladas se envían al servidor. Las claves originales en texto plano se borran de la memoria del navegador inmediatamente."
+      },
+      "entry": {
+        "step1": "Validación: El navegador comprueba su entrada y prohíbe las contraseñas reales. Solo se permiten indicaciones de ubicación (por ejemplo, 'guardado en 1Password').",
+        "step2": "Etiquetado: Se adjunta un sello digital permanente a la entrada, vinculándola irreversiblemente a su bóveda, cuenta y número de revisión.",
+        "step3": "Cifrado local: La entrada se cifra en el navegador utilizando la clave maestra (AES-256-GCM). El texto plano permanece seguro en su dispositivo.",
+        "step4": "Almacenamiento: El sobre cifrado se envía al servidor. El servidor solo ve texto cifrado ilegible y nunca puede descifrarlo."
+      }
+    },
+    "nerd": {
+      "bootstrap": {
+        "step1": "Generación de clave raíz: El cliente genera una clave raíz AES-GCM de 256 bits a través de la API WebCrypto. Una vez importada, se aísla en la RAM como una CryptoKey no extraíble.",
+        "step2": "Extensión PRF de WebAuthn: Mediante la extensión PRF de la llave de paso, una ceremonia biométrica genera un valor de entropía determinista, que se extiende a una KEK de 256 bits mediante HKDF-SHA-256.",
+        "step3": "Argon2id KDF: El código de recuperación Crockford-Base32 de 120 bits se estira utilizando Argon2id (64 MiB de RAM, 3 iteraciones) para derivar una KEK de recuperación independiente.",
+        "step4": "Envoltura de clave raíz: La clave raíz se envuelve dos veces (una con la KEK derivada de PRF, otra con la KEK de recuperación) utilizando AES-256-GCM con metadatos autenticados (AAD).",
+        "step5": "Puesta a cero y sincronización: Todos los bytes de clave en texto plano transitorios se borran mediante memzero. Solo los sobres de clave envueltos y la política KDF se sincronizan con la base de datos a través de HTTPS."
+      },
+      "entry": {
+        "step1": "Comprobación de esquema: La entrada se valida a través de assertNoSecretFields() y un esquema Zod para rechazar claves similares a contraseñas y evitar la exposición de secretos.",
+        "step2": "Vinculación AAD: Los metadatos (vaultId, itemId, ownerId, revision) se vinculan como datos autenticados adicionales (AAD) para evitar ataques de reproducción o manipulación entre bóvedas.",
+        "step3": "Cifrado AES-256-GCM: La entrada se cifra en el lado del cliente utilizando la clave raíz no extraíble, un vector de inicialización (IV) aleatorio de 12 bytes y los metadatos AAD.",
+        "step4": "Sincronización del servidor: El servidor recibe solo la carga útil JSON que contiene el texto cifrado, el IV y el AAD. Sin las claves, el servidor no puede acceder al texto plano."
+      }
     }
   }
 }

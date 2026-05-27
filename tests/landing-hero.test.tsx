@@ -49,4 +49,14 @@ describe("LandingHero", () => {
     expect(screen.getByRole("link", { name: "Datenschutz" })).toHaveAttribute("href", "/datenschutz");
     expect(screen.getByRole("link", { name: "Copyright" })).toHaveAttribute("href", "/copyright");
   });
+
+  it("links the top HowTo entry to /howto", () => {
+    renderWithIntl(<LandingHero />);
+    expect(screen.getByRole("link", { name: "HowTo" })).toHaveAttribute("href", "/howto");
+  });
+
+  it("renders the 'So funktioniert's' button linking to the guide", () => {
+    renderWithIntl(<LandingHero />);
+    expect(screen.getByRole("link", { name: /So funktioniert's/ })).toHaveAttribute("href", "/howto");
+  });
 });

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function LandingTrustStrip() {
   const t = useTranslations("marketing.trustStrip");
@@ -23,14 +24,12 @@ export function LandingTrustStrip() {
       </li>
       <li className="landing__trust-item">
         <span className="landing__trust-dot" aria-hidden="true" />
-        <a
-          href="https://github.com/NC-AGENTIC/nachklang-community/blob/main/SECURITY.md"
-          target="_blank"
-          rel="noreferrer noopener"
+        <Link
+          href="/security"
           className="landing__trust-doclink"
         >
           {t("zeroKnowledge")}
-        </a>
+        </Link>
       </li>
     </ul>
   );

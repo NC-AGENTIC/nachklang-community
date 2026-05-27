@@ -21,6 +21,7 @@ type Props = {
 
 export function AppChrome({ initialFullyAuthed, serverEmail, hasVault, children }: Props) {
   const t = useTranslations("chrome.app");
+  const tGuide = useTranslations("guide");
   const sessionStore = useStore(authClient.useSession);
   const sessionUser = sessionStore?.data?.user ?? null;
   const clientFullyAuthed = sessionUser ? Boolean(sessionUser.emailVerified) : null;
@@ -49,6 +50,9 @@ export function AppChrome({ initialFullyAuthed, serverEmail, hasVault, children 
             <Link href={ownsVault ? "/vault/settings" : "/account"}>{t("navSettings")}</Link>
             <Link href="/shared">{t("navShared")}</Link>
             <Link href="/audit">{t("navAudit")}</Link>
+            <Link href="/howto" target="_blank" rel="noopener" className="rail-help">
+              {tGuide("inAppLink")}
+            </Link>
           </nav>
           {ownsVault ? <VaultMetadataBadges /> : null}
         </aside>
@@ -60,6 +64,9 @@ export function AppChrome({ initialFullyAuthed, serverEmail, hasVault, children 
           <Link href={ownsVault ? "/vault/settings" : "/account"}>{t("navSettings")}</Link>
           <Link href="/shared">{t("navShared")}</Link>
           <Link href="/audit">{t("navAudit")}</Link>
+          <Link href="/howto" target="_blank" rel="noopener" className="rail-help">
+            {tGuide("inAppLink")}
+          </Link>
         </nav>
       ) : null}
     </div>

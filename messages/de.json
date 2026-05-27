@@ -292,7 +292,8 @@
       "footerCopy": "© NC AGENTIC GmbH",
       "footerImpressum": "Impressum",
       "footerDatenschutz": "Datenschutz",
-      "footerCopyright": "Copyright"
+      "footerCopyright": "Copyright",
+      "footerSecurity": "Sicherheit"
     },
     "trustStrip": {
       "ariaLabel": "Vertrauenssignale",
@@ -586,6 +587,74 @@
     "signedInBadge": {
       "lock": "Sperren",
       "signOut": "Abmelden"
+    }
+  },
+  "guide": {
+    "navLink": "HowTo",
+    "inAppLink": "Hilfe",
+    "metaTitle": "HowTo · NachKlang",
+    "metaDescription": "Schritt-für-Schritt-Anleitung: Konto erstellen, Passkey einrichten, Tresor füllen, sicher teilen und Daten löschen.",
+    "fallbackNotice": "Diese Anleitung ist derzeit auf Deutsch und Englisch verfügbar. Weitere Übersetzungen folgen.",
+    "backLabel": "Zurück zur Startseite",
+    "securityRiskLabel": "Risiko",
+    "securityMitigationLabel": "So schützen wir Sie",
+    "toc": { "ariaLabel": "Inhaltsverzeichnis", "heading": "Inhalt" },
+    "howtoButton": "So funktioniert's",
+    "securitySpotlight": {
+      "eyebrow": "ZERO-KNOWLEDGE",
+      "title": "Erst die Sicherheit. Dann der Rest.",
+      "lede": "Bevor Sie loslegen: Sehen Sie selbst, wie Ihre Daten in Ihrem Browser verschlüsselt werden — und warum unser Server sie niemals entschlüsseln kann.",
+      "cta": "Sicherheitsarchitektur ansehen"
+    }
+  },
+  "security": {
+    "metaTitle": "Sicherheitsarchitektur · NachKlang",
+    "metaDescription": "Interaktive Visualisierung unserer Zero-Knowledge-Sicherheitsarchitektur.",
+    "title": "Wie wir Ihre Daten schützen",
+    "subtitle": "Eine interaktive Erklärung der Sicherheitsmechanismen hinter Ihrem Zero-Knowledge-Tresor.",
+    "tabSimple": "Einfache Erklärung",
+    "tabNerd": "Für Techies & Nerds",
+    "toggleBootstrap": "Tresor erstellen",
+    "toggleEntry": "Eintrag sichern",
+    "client": "Ihr Gerät (Browser)",
+    "server": "NachKlang Server",
+    "audienceLabel": "Zielgruppe",
+    "backTop": "Zurück",
+    "backHome": "Zurück zur Homepage",
+    "stepLabel": "Schritt",
+    "autoLabel": "Auto",
+    "assuranceTitle": "Zero-Knowledge-Garantie",
+    "assuranceBootstrap": "Unser Server erhält zu keinem Zeitpunkt Ihren rohen Hauptschlüssel oder biometrische Daten. Schlüssel werden mathematisch in der sicheren Sandbox Ihres Browsers verpackt, bevor sie übertragen werden.",
+    "assuranceEntry": "Alle strukturellen Bindungen (Tresor, Einträge, Eigentümer) werden auf dem Client kryptografisch signiert. Unser Server arbeitet ausschließlich als blindes Hauptbuch.",
+    "average": {
+      "bootstrap": {
+        "step1": "Schlüssel-Erzeugung: Ein starker Hauptschlüssel (Goldener Schlüssel) wird direkt in Ihrem Browser generiert. Er verlässt Ihren Computer niemals.",
+        "step2": "Fingerabdruck-Schloss: Ihr Biometrie-Passkey (Touch ID, Windows Hello) erstellt ein einzigartiges digitales Vorhängeschloss, um Ihren Hauptschlüssel zu schützen.",
+        "step3": "Notfall-Schlüssel: Ein langer Recovery-Code wird generiert. Dieser wird extrem aufwendig verarbeitet, um ein zweites Sicherheits-Schloss zu bilden.",
+        "step4": "Verschließen: Der Hauptschlüssel wird in zwei unabhängige, verschlüsselte Boxen verpackt (eine für Ihren Passkey, eine für Ihren Recovery-Code).",
+        "step5": "Übertragung: Nur die verschlossenen Boxen werden an den Server gesendet. Die Originalschlüssel werden sofort aus dem Speicher Ihres Browsers gelöscht."
+      },
+      "entry": {
+        "step1": "Prüfung: Der Browser prüft Ihren neuen Eintrag und verbietet die Eingabe von echten Passwörtern. Nur Fundort-Hinweise (z. B. 'liegt in 1Password') sind erlaubt.",
+        "step2": "Etikettierung: Dem Eintrag wird ein festes digitales Siegel aufgeklebt, das ihn untrennbar mit Ihrem Tresor, Ihrem Konto und der Versionsnummer verbindet.",
+        "step3": "Lokales Verschlüsseln: Der Eintrag wird in Ihrem Browser mit dem Hauptschlüssel fest verschlossen (AES-256-GCM). Der Klartext ist auf Ihrem Gerät sicher.",
+        "step4": "Speicherung: Die verschlüsselte Box wird an den Server gesendet. Der Server sieht nur unlesbare Zeichen und kann sie niemals entschlüsseln."
+      }
+    },
+    "nerd": {
+      "bootstrap": {
+        "step1": "Root-Key Generierung: Der Client erzeugt via WebCrypto API einen 256-Bit AES-GCM Root-Schlüssel. Nach dem Import wird dieser als non-extractable CryptoKey im RAM isoliert.",
+        "step2": "WebAuthn PRF Extension: Über die PRF-Erweiterung des Passkeys wird biometrisch ein deterministischer Entropiewert generiert und mittels HKDF-SHA-256 in einen 256-Bit KEK gestreckt.",
+        "step3": "Argon2id KDF: Der 120-Bit Crockford-Base32 Recovery-Code wird mit Argon2id (64 MiB RAM, 3 Iterationen) verarbeitet, um einen unabhängigen Recovery-KEK zu erzeugen.",
+        "step4": "Root-Key wrapping: Der Root-Key wird doppelt gewrappt (einmal mit dem PRF-KEK, einmal mit dem Recovery-KEK) unter Verwendung von AES-256-GCM mit Authenticated Data (AAD).",
+        "step5": "Zeroing & Sync: Alle transienten Klartextschlüssel-Bytes werden via memzero gelöscht. Nur die gewrappten Key-Blobs und die KDF-Policy werden via HTTPS an die DB übertragen."
+      },
+      "entry": {
+        "step1": "Schema-Prüfung: Die Eingabedaten werden per assertNoSecretFields() und Zod-Schema auf sicherheitsrelevante Wörter gefiltert, um Passwort-Exponierung zu verhindern.",
+        "step2": "AAD Bindung: Ein Metadatenobjekt (vaultId, itemId, ownerId, revision) wird als Additional Authenticated Data (AAD) definiert, um Replay- und Verschiebe-Angriffe auszuschließen.",
+        "step3": "AES-256-GCM Verschlüsselung: Die Daten werden clientseitig mit dem nicht-exportierbaren Root-Key, einem frischen 12-Byte-IV und den AAD verschlüsselt.",
+        "step4": "Server Sync: Der Server erhält nur das JSON-Paket mit dem Ciphertext, dem IV und den AAD-Metadaten. Der Server besitzt keine Keys und kann die Daten nicht dechiffrieren."
+      }
     }
   }
 }

@@ -9,6 +9,8 @@ import { getMailTransport } from "@/server/mail/transport";
 import { buildOtpEmailHtml } from "@/server/mail/otp-email-template";
 import { pickLocaleFromRequest } from "@/server/i18n/pick-locale";
 
+import { assertRecipientWithinSendQuota, assertSendableRecipient } from "./email-policy";
+
 const APP_URL =
   process.env.NACHKLANG_APP_URL || process.env.NACHKLANG_BUILD_ORIGIN || "http://localhost:3000";
 
@@ -41,6 +43,11 @@ export const auth = betterAuth({
     emailOTP({
       expiresIn: 600,
       async sendVerificationOTP({ email, otp }, request) {
+        // Defense-in-depth behind Turnstile + per-IP rate limit: refuse RFC 2606 reserved
+        // domains and obviously malformed addresses, and cap per-recipient send volume.
+        // See email-policy.ts for the May 2026 incident that motivates this guard.
+        assertSendableRecipient(email);
+        assertRecipientWithinSendQuota(email);
         const locale = pickLocaleFromRequest(request as Request | undefined);
         const t = await getTranslations({ locale, namespace: "email.otp" });
         await getMailTransport().send({
